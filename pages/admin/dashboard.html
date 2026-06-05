@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Takoyaki House Admin Dashboard
+    </title>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/admin/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="sidebar-logo">
+
+                <img
+                    src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg"
+                    alt="Logo">
+
+                <div>
+                    <h2>Takoyaki</h2>
+                    <p>Admin Panel</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-menu">
+
+            <a href="#" class="active" data-view="dashboard">
+                📊 Dashboard
+            </a>
+
+            <a href="#" data-view="menu-management">
+                🍡 Menu Management
+            </a>
+
+            <a href="#" data-view="orders">
+                🧾 Orders
+            </a>
+
+            <a href="#" data-view="promo">
+                🎁 Promo
+            </a>
+
+            <a href="#" data-view="members">
+                👥 Members
+            </a>
+
+            <a href="#" data-view="reports">
+                📈 Reports
+            </a>
+
+            <a href="#" data-view="settings">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="topbar-tag">
+                    Welcome Back 👋
+                </p>
+
+                <h1>
+                    Dashboard Overview
+                </h1>
+            </div>
+
+
+            <div class="topbar-right">
+
+                <input type="text"
+                       placeholder="Search dashboard...">
+
+                <div class="admin-profile">
+
+                    <img
+                        src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
+
+                    <div>
+                        <h4>Administrator</h4>
+                        <p>Admin</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-section active" data-view="dashboard">
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stats-card">
+
+                    <div class="stats-top">
+                        <span>🛒</span>
+                        <p>+12%</p>
+                    </div>
+
+                    <h2>1,245</h2>
+
+                    <span>Total Orders</span>
+
+                </div>
+
+
+                <div class="stats-card">
+
+                    <div class="stats-top">
+                        <span>💰</span>
+                        <p>+8%</p>
+                    </div>
+
+                    <h2>Rp 8.5M</h2>
+
+                    <span>Revenue</span>
+
+                </div>
+
+
+                <div class="stats-card">
+
+                    <div class="stats-top">
+                        <span>👥</span>
+                        <p>+20%</p>
+                    </div>
+
+                    <h2>842</h2>
+
+                    <span>Members</span>
+
+                </div>
+
+
+                <div class="stats-card">
+
+                    <div class="stats-top">
+                        <span>🔥</span>
+                        <p>Best Seller</p>
+                    </div>
+
+                    <h2>Cheese Melt</h2>
+
+                    <span>Most Favorite Menu</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONTENT GRID -->
+            <section class="dashboard-grid">
+
+                <!-- RECENT ORDERS -->
+                <div class="dashboard-card recent-orders">
+
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <button class="view-menu-btn" data-view-target="menu-management">View All</button>
+                    </div>
+
+
+                    <div class="order-list">
+
+                        <div class="order-item">
+
+                            <div>
+                                <h4>Cheese Melt Takoyaki</h4>
+                                <p>Cindy Tiara</p>
+                            </div>
+
+                            <span class="success">
+                                Completed
+                            </span>
+
+                        </div>
+
+
+                        <div class="order-item">
+
+                            <div>
+                                <h4>Matcha Latte</h4>
+                                <p>Ayu Pratiwi</p>
+                            </div>
+
+                            <span class="pending">
+                                Pending
+                            </span>
+
+                        </div>
+
+
+                        <div class="order-item">
+
+                            <div>
+                                <h4>Chicken Karaage</h4>
+                                <p>Budi Santoso</p>
+                            </div>
+
+                            <span class="success">
+                                Completed
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- POPULAR MENU -->
+                <div class="dashboard-card popular-menu">
+
+                    <div class="card-header">
+                        <h3>Popular Menu</h3>
+                    </div>
+
+
+                    <div class="popular-item">
+
+                        <img src="https://i.pinimg.com/736x/fe/58/0c/fe580c83a433505a674e19b1a835ab2b.jpg">
+
+                        <div>
+                            <h4>Cheese Melt Takoyaki</h4>
+                            <p>245 Orders</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="popular-item">
+
+                        <img src="https://i.pinimg.com/736x/07/c9/16/07c9165f3b6b1d88c2b45d44a8fd8724.jpg">
+
+                        <div>
+                            <h4>Chicken Karaage</h4>
+                            <p>198 Orders</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="popular-item">
+
+                        <img src="https://i.pinimg.com/736x/8f/14/0b/8f140cb2c5d59b2c13d1bcf3f67f6b3.jpg">
+
+                        <div>
+                            <h4>Matcha Latte</h4>
+                            <p>175 Orders</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <section class="page-section" data-view="menu-management">
+
+            <div class="management-header">
+
+                <div>
+                    <p class="topbar-tag">Catalog control</p>
+                    <h2>Menu Management</h2>
+                </div>
+
+                <div class="management-actions">
+
+                    <div class="filter-field">
+                        <label for="menuCategoryFilter">Category</label>
+                        <select id="menuCategoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="Takoyaki">Takoyaki</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Side Menu">Side Menu</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-gradient" id="addMenuBtn">+ Add Menu</button>
+
+                </div>
+
+            </div>
+
+            <div class="management-stats"></div>
+
+            <div class="dashboard-card menu-table-card">
+
+                <div class="card-header">
+                    <h3>Menu Catalog</h3>
+                    <button id="refreshMenuBtn">Refresh</button>
+                </div>
+
+                <div class="menu-table-wrap">
+                    <table class="menu-table">
+                        <thead>
+                            <tr>
+                                <th>Menu Item</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="menu-table-body"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/admin/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!Auth.requireAuth(['admin'], '../login.html')) return;
+
+            const logoutButton = document.querySelector('.logout-btn');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', () => {
+                    Auth.logout('../login.html');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

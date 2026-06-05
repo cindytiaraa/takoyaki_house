@@ -1,0 +1,302 @@
+/* =========================
+   REGISTER PAGE
+========================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    overflow: auto;
+    position: relative;
+}
+
+/* ── Home Button ─────────────────── */
+.auth-home-btn {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    padding: 9px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 700;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: 0.25s ease;
+    box-shadow: 3px 3px 0 var(--navy);
+}
+.auth-home-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--navy-dark);
+}
+.auth-home-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* ── Section ─────────────────────── */
+.register-section {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Left Panel (Form) ────────────── */
+.register-left {
+    background: var(--white);
+    border-right: 1px solid #e8ddd1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Deco inside left panel */
+.register-left .deco { z-index: 0; }
+
+/* ── Card ─────────────────────────── */
+.register-card {
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    z-index: 1;
+}
+
+.register-card-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+.register-card-head img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+}
+.register-card-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.register-card-note {
+    color: #64748b;
+    margin-bottom: 36px;
+    line-height: 1.75;
+    font-size: 0.92rem;
+}
+
+/* ── Form Inputs ──────────────────── */
+.input-group { margin-bottom: 22px; }
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--navy);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e8ddd1;
+    border-radius: var(--radius);
+    background: var(--cream);
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--black);
+    transition: 0.25s ease;
+}
+.input-group input:focus {
+    border-color: var(--orange);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.08);
+}
+.input-group input::placeholder { color: #bbb; }
+
+/* ── Submit Button ────────────────── */
+.register-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--orange);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: 0.25s ease;
+    box-shadow: 0 6px 20px rgba(255, 122, 0, 0.30);
+}
+.register-btn:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 122, 0, 0.38);
+}
+
+/* ── Footer ───────────────────────── */
+.register-footer {
+    margin-top: 26px;
+    color: #64748b;
+    font-size: 0.88rem;
+    text-align: center;
+}
+.register-footer a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+}
+.register-footer a:hover { color: var(--orange-dark); }
+
+/* Divider line inside card */
+.card-divider {
+    height: 1px;
+    background: #e8ddd1;
+    margin: 28px 0;
+}
+
+/* ── Right Panel (Branding) ───────── */
+.register-right {
+    background: var(--cream);
+    padding: 100px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative elements — right panel */
+.register-right .deco { z-index: 0; }
+.register-right > *:not(.deco) { position: relative; z-index: 1; }
+
+.register-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 122, 0, 0.12);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 999px;
+    width: max-content;
+}
+
+.register-right h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    max-width: 460px;
+}
+.register-right h1 em {
+    font-style: italic;
+    color: var(--orange);
+}
+
+.register-desc {
+    color: #666;
+    line-height: 1.8;
+    font-size: 0.97rem;
+    max-width: 420px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.benefit-card {
+    padding: 18px 16px;
+    border-radius: 16px;
+    background: var(--white);
+    border: 1px solid rgba(255, 122, 0, 0.18);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.88rem;
+    box-shadow: 0 6px 20px rgba(255, 122, 0, 0.06);
+    transition: 0.25s ease;
+}
+.benefit-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 122, 0, 0.12);
+}
+
+/* Horizontal divider */
+.register-right-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #aaa;
+    font-size: 0.78rem;
+}
+.register-right-divider::before,
+.register-right-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8ddd1;
+}
+
+.register-link {
+    width: max-content;
+    font-size: 0.88rem;
+}
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 1024px) {
+    .register-section {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+    .register-left {
+        border-right: none;
+        border-bottom: 1px solid #e8ddd1;
+        padding: 60px 40px;
+    }
+    .register-right {
+        padding: 60px 40px;
+        min-height: unset;
+    }
+}
+
+@media (max-width: 660px) {
+    .register-right { padding: 48px 24px; }
+    .register-right h1 { font-size: 2rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .register-left { padding: 48px 24px; }
+    .auth-home-btn { top: 14px; left: 14px; }
+}

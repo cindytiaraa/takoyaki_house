@@ -1,0 +1,116 @@
+.order-form-wrap {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+    margin-top: 8px;
+}
+
+.order-menu-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Order summary box */
+.order-summary {
+    background: var(--white);
+    border: 2px solid var(--navy);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+.order-summary .step-label { margin-bottom: 12px; color: var(--navy); }
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    padding: 6px 0;
+    border-bottom: 1px dashed #e8ddd1;
+    color: var(--black);
+}
+.summary-item:last-of-type { border-bottom: none; }
+.summary-total {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--navy);
+    text-align: right;
+}
+.summary-total strong { color: var(--orange); font-size: 1.05rem; }
+
+/* Order action buttons */
+.order-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-step { display: flex; flex-direction: column; gap: 12px; }
+
+.step-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--navy);
+}
+
+.menu-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 2px solid #e8ddd1;
+    border-radius: 40px;
+    background: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+}
+.menu-chip:hover { border-color: var(--orange); }
+.menu-chip.selected {
+    border-color: var(--orange);
+    background: var(--orange-light);
+}
+.menu-chip .chip-name { font-size: 0.83rem; font-weight: 600; color: var(--black); }
+.menu-chip .chip-price { font-size: 0.75rem; color: var(--orange); font-weight: 700; }
+.menu-chip .chip-qty {
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+.menu-chip.selected .chip-qty { display: flex; }
+.chip-qty button {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--orange);
+    background: transparent;
+    color: var(--orange);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    line-height: 1;
+    transition: var(--transition);
+}
+.chip-qty button:hover { background: var(--orange); color: white; }
+.chip-qty .qty-count {
+    font-size: 0.82rem;
+    font-weight: 700;
+    min-width: 16px;
+    text-align: center;
+    color: var(--navy);
+}
+
+.picker-hint {
+    font-size: 0.80rem;
+    color: var(--orange-dark);
+    font-weight: 500;
+}
+.order-msg { margin-top: 8px; padding: 12px 20px; border-radius: var(--radius); font-size: 0.88rem; font-weight: 500; position: relative; z-index: 1; }
+.order-msg.success { background: #eafaf1; border: 1px solid #27ae60; color: #1e8449; }
+.order-msg.error { background: #fff3f0; border: 1px solid var(--orange); color: var(--orange-dark); }

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Takoyaki House</title>
+    <meta name="description" content="Masuk ke akun Takoyaki House untuk menikmati promo eksklusif, pemesanan lebih cepat, dan keuntungan member.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/auth/login.css">
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/data/account.js" defer></script>
+    <script src="../../js/auth.js" defer></script>
+
+</head>
+
+<body>
+
+    <!--  JOIN MEMBER -->
+    <div class="modal-overlay" id="memberModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeMemberModal">✕</button>
+            <div class="modal-icon">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+            </div>
+            <h3 class="modal-title">Takoyaki House Member</h3>
+            <p class="modal-sub">Dapatkan promo eksklusif, diskon ulang tahun, dan akses early order khusus member!</p>
+            <div class="modal-benefits">
+                <div class="benefit-item">🎁 Diskon 10% setiap hari</div>
+                <div class="benefit-item">🎂 Free takoyaki di hari ulang tahun</div>
+                <div class="benefit-item">⚡ Early access promo flash sale</div>
+                <div class="benefit-item">📦 Priority order tanpa antri</div>
+            </div>
+            <div class="modal-form">
+                <input type="text" placeholder="Full Name" id="memberName">
+                <input type="email" placeholder="Email Address" id="memberEmail">
+                <input type="password" placeholder="Password" id="memberPassword">
+                <button class="btn-primary modal-submit" onclick="handleMember()">Create Account</button>
+            </div>
+            <p class="modal-login">Already a member? <a href="#" onclick="return false;">Sign in</a></p>
+        </div>
+    </div>
+
+    <!-- HOME BUTTON -->
+    <a href="../home.html" class="auth-home-btn" id="homeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Kembali ke Home
+    </a>
+
+    <!-- LOGIN CONTAINER -->
+    <section class="login-section">
+
+        <!-- LEFT — Branding Panel -->
+        <div class="login-left">
+            <!-- Decorative elements -->
+            <div class="deco deco-solid" style="width:120px;height:120px;top:-30px;right:60px;opacity:0.12;"></div>
+            <div class="deco deco-outline" style="width:80px;height:80px;top:60px;right:20px;opacity:0.22;"></div>
+            <div class="deco deco-solid" style="width:50px;height:50px;bottom:120px;left:-15px;opacity:0.10;"></div>
+            <div class="deco deco-outline" style="width:160px;height:160px;bottom:-60px;right:30px;opacity:0.15;"></div>
+            <div class="deco deco-dots" style="width:110px;height:110px;top:100px;left:20px;opacity:0.15;"></div>
+            <div class="deco deco-dots" style="width:90px;height:90px;bottom:80px;right:100px;opacity:0.12;"></div>
+            <div class="deco deco-navy" style="width:40px;height:40px;top:50%;left:10px;opacity:0.08;"></div>
+
+            <span class="login-badge">👋 Welcome Back</span>
+
+            <h1>Masuk ke Akun<br><em>Takoyaki House</em></h1>
+
+            <p class="login-desc">Login untuk menikmati promo eksklusif, melakukan pemesanan lebih cepat, dan mengakses semua keuntungan member Takoyaki House.</p>
+
+            <div class="login-benefits">
+                <div class="login-benefit-item">🎁 Promo member eksklusif</div>
+                <div class="login-benefit-item">⚡ Checkout lebih cepat</div>
+                <div class="login-benefit-item">📦 Riwayat order lengkap</div>
+                <div class="login-benefit-item">🎂 Reward setiap pembelian</div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT — Form Panel -->
+        <div class="login-right">
+            <!-- Right panel decos -->
+            <div class="deco deco-outline deco-r1" style="width:120px;height:120px;top:-40px;right:-40px;opacity:0.18;"></div>
+            <div class="deco deco-solid deco-r2" style="width:55px;height:55px;bottom:80px;left:-18px;opacity:0.10;"></div>
+            <div class="deco deco-dots deco-dots-r" style="width:90px;height:90px;bottom:120px;right:20px;opacity:0.14;"></div>
+            <div class="deco deco-navy-outline" style="width:70px;height:70px;top:50%;left:-25px;opacity:0.12;"></div>
+
+            <div class="login-card">
+                <div class="login-card-head">
+                    <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" alt="Takoyaki House" width="42">
+                    <h2>Sign In</h2>
+                </div>
+                <p class="login-card-note">Masukkan email dan password untuk akses akun kamu.</p>
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Masukkan email kamu" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Masukkan password" required>
+                    </div>
+
+                    <div class="login-options">
+                        <label class="remember">
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                        <a href="#">Lupa password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn" id="loginSubmit">Sign In</button>
+                </form>
+
+                <div class="card-divider"></div>
+
+                <p class="login-footer">Dont have an account? <a href="register.html" id="registerLink">Create new account</a></p>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

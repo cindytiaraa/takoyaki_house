@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takoyaki House</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/menu.css">
+
+    <script src="../js/script.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <div class="nav-inner">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+            </div>
+            <span class="logo-text">Takoyaki House</span>
+        </div>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="promo.html">Promo</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn-member" id="openMemberModal">Join Member</button>
+            <a href="order.html" class="btn-nav">Order Now</a>
+        </div>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="promo.html">Promo</a>
+        <a href="contact.html">Contact</a>
+        <button class="btn-member" onclick="openMember()">Join Member</button>
+        <a href="order.html" class="btn-nav">Order Now</a>
+    </div>
+</header>
+
+<!--  JOIN MEMBER -->
+<div class="modal-overlay" id="memberModal">
+    <div class="modal-box">
+        <button class="modal-close" id="closeMemberModal">✕</button>
+        <div class="modal-icon">
+            <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+        </div>
+        <h3 class="modal-title">Takoyaki House Member</h3>
+        <p class="modal-sub">Dapatkan promo eksklusif, diskon ulang tahun, dan akses early order khusus member!</p>
+        <div class="modal-benefits">
+            <div class="benefit-item">🎁 Diskon 10% setiap hari</div>
+            <div class="benefit-item">🎂 Free takoyaki di hari ulang tahun</div>
+            <div class="benefit-item">⚡ Early access promo flash sale</div>
+            <div class="benefit-item">📦 Priority order tanpa antri</div>
+        </div>
+        <div class="modal-form">
+            <input type="text" placeholder="Full Name" id="memberName">
+            <input type="email" placeholder="Email Address" id="memberEmail">
+            <input type="password" placeholder="Password" id="memberPassword">
+            <button class="btn-primary modal-submit" onclick="handleMember()">Create Account</button>
+        </div>
+        <p class="modal-login">Already a member? <a href="auth/login.html">Sign in</a></p>
+    </div>
+</div>
+
+<!-- MENU SECTION -->
+<section class="menu-section" id="menu">
+    <div class="section-header">
+        <h2>Menu Kami</h2>
+        <p>"Pilih favoritmu dan nikmati setiap gigitan!"</p>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+        <div class="menu-skeleton"></div>
+        <div class="menu-skeleton"></div>
+        <div class="menu-skeleton"></div>
+        <div class="menu-skeleton"></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+    <div class="deco deco-4"></div>
+    <div class="deco deco-5"></div>
+
+    <div class="footer-inner">
+
+        <div class="footer-divider"></div>
+        <div class="footer-brand">TAKOYAKI HOUSE</div>
+        <div class="footer-socials">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">TK</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">YT</a>
+            <a href="mailto:takoyaki@gmail.com" aria-label="Email">@</a>
+            <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+        <div class="footer-info">
+            <p>📞 0812-3456-7890 &nbsp;|&nbsp; 📍 Surabaya, Jawa Timur &nbsp;|&nbsp; 🕒 10:00 – 22:00</p>
+            <p>© 2026 Takoyaki House. Privacy – Terms</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

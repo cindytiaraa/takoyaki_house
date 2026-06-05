@@ -1,0 +1,69 @@
+/* Member Home page styles.
+   Extends `style/style.css` with page-specific layout and spacing. */
+
+.member-home-page {
+    min-height: 100vh;
+    padding-top: 120px;
+    background: var(--cream);
+}
+
+.member-home-page .hero {
+    padding: 80px 8% 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-home-page .hero-inner {
+    max-width: 1120px;
+    width: 100%;
+}
+
+.member-home-page .hero-text {
+    max-width: 720px;
+}
+
+.member-home-page .hero-tag {
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.member-home-page .hero-title {
+    font-size: clamp(3.2rem, 4.5vw, 5.4rem);
+    line-height: 1.05;
+    margin-bottom: 22px;
+    color: var(--black);
+}
+
+.member-home-page .hero-title span {
+    color: var(--orange);
+}
+
+.member-home-page .hero-sub {
+    color: #5f6674;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 32px;
+}
+
+.member-home-page .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+@media (max-width: 900px) {
+    .member-home-page .hero {
+        padding: 60px 6% 80px;
+    }
+
+    .member-home-page .hero-title {
+        font-size: 3.2rem;
+    }
+
+    .member-home-page .hero-inner {
+        padding-top: 20px;
+    }
+}

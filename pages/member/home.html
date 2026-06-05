@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Home - Takoyaki House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/member/home.css">
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/member/home.js" defer></script>
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+                </div>
+                <span class="logo-text">Takoyaki House</span>
+            </div>
+            <nav class="nav-links">
+                <a href="menu.html">Menu</a>
+                <a href="promo.html">Promo</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-member" id="logoutButton">Logout</button>
+                <a href="order.html" class="btn-nav">Order Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="member-home-page">
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <p class="hero-tag">Selamat datang sebagai member</p>
+                    <h1 class="hero-title">Halo, <span id="memberName">Member</span></h1>
+                    <p class="hero-sub">Nikmati promo eksklusif, kelola pesananmu, dan pesan favorit dengan cepat.</p>
+                    <div class="hero-cta">
+                        <a href="menu.html" class="btn-primary">Lihat Menu</a>
+                        <a href="order.html" class="btn-secondary">Order Sekarang →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
