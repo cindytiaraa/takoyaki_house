@@ -40,272 +40,125 @@
 
 
         <div class="sidebar-menu">
-
             <a href="#" class="active" data-view="dashboard">
                 📊 Dashboard
             </a>
-
             <a href="#" data-view="menu-management">
-                🍡 Menu Management
+                🍡 Kelola Produk
             </a>
-
             <a href="#" data-view="orders">
-                🧾 Orders
+                🧾 Kelola Transaksi
             </a>
-
-            <a href="#" data-view="promo">
-                🎁 Promo
-            </a>
-
             <a href="#" data-view="members">
-                👥 Members
+                👥 Kelola Pengguna
             </a>
-
-            <a href="#" data-view="reports">
-                📈 Reports
+            <a href="#" data-view="articles">
+                📰 Kelola Artikel
             </a>
-
-            <a href="#" data-view="settings">
-                ⚙️ Settings
-            </a>
-
         </div>
 
-
         <div class="sidebar-bottom">
-
             <button class="logout-btn">
                 Logout
             </button>
-
         </div>
-
     </aside>
-
 
     <!-- MAIN -->
     <main class="dashboard-main">
-
         <!-- TOPBAR -->
         <header class="topbar">
-
             <div>
-                <p class="topbar-tag">
-                    Welcome Back 👋
-                </p>
-
-                <h1>
-                    Dashboard Overview
-                </h1>
+                <p class="topbar-tag">Welcome Back 👋</p>
+                <h1 id="pageTitle">Dashboard Overview</h1>
             </div>
 
-
             <div class="topbar-right">
-
-                <input type="text"
-                       placeholder="Search dashboard...">
-
+                <input type="text" id="dashboardSearch" placeholder="Search data...">
                 <div class="admin-profile">
-
-                    <img
-                        src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
-
+                    <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
                     <div>
                         <h4>Administrator</h4>
                         <p>Admin</p>
                     </div>
-
                 </div>
-
             </div>
-
         </header>
 
-
+        <!-- DASHBOARD OVERVIEW VIEW -->
         <section class="page-section active" data-view="dashboard">
-
             <!-- STATISTICS -->
             <section class="stats-grid">
-
                 <div class="stats-card">
-
                     <div class="stats-top">
                         <span>🛒</span>
-                        <p>+12%</p>
+                        <p id="ordersTrend">+12%</p>
                     </div>
-
-                    <h2>1,245</h2>
-
+                    <h2 id="totalOrdersStat">0</h2>
                     <span>Total Orders</span>
-
                 </div>
 
-
                 <div class="stats-card">
-
                     <div class="stats-top">
                         <span>💰</span>
-                        <p>+8%</p>
+                        <p id="revenueTrend">+8%</p>
                     </div>
-
-                    <h2>Rp 8.5M</h2>
-
+                    <h2 id="totalRevenueStat">Rp 0</h2>
                     <span>Revenue</span>
-
                 </div>
 
-
                 <div class="stats-card">
-
                     <div class="stats-top">
                         <span>👥</span>
-                        <p>+20%</p>
+                        <p id="membersTrend">+20%</p>
                     </div>
-
-                    <h2>842</h2>
-
+                    <h2 id="totalMembersStat">0</h2>
                     <span>Members</span>
-
                 </div>
 
-
                 <div class="stats-card">
-
                     <div class="stats-top">
                         <span>🔥</span>
                         <p>Best Seller</p>
                     </div>
-
-                    <h2>Cheese Melt</h2>
-
+                    <h2 id="bestSellerStat">-</h2>
                     <span>Most Favorite Menu</span>
-
                 </div>
-
             </section>
-
 
             <!-- CONTENT GRID -->
             <section class="dashboard-grid">
-
                 <!-- RECENT ORDERS -->
                 <div class="dashboard-card recent-orders">
-
                     <div class="card-header">
                         <h3>Recent Orders</h3>
-                        <button class="view-menu-btn" data-view-target="menu-management">View All</button>
+                        <button class="view-menu-btn" data-view-target="orders">View All</button>
                     </div>
-
-
-                    <div class="order-list">
-
-                        <div class="order-item">
-
-                            <div>
-                                <h4>Cheese Melt Takoyaki</h4>
-                                <p>Cindy Tiara</p>
-                            </div>
-
-                            <span class="success">
-                                Completed
-                            </span>
-
-                        </div>
-
-
-                        <div class="order-item">
-
-                            <div>
-                                <h4>Matcha Latte</h4>
-                                <p>Ayu Pratiwi</p>
-                            </div>
-
-                            <span class="pending">
-                                Pending
-                            </span>
-
-                        </div>
-
-
-                        <div class="order-item">
-
-                            <div>
-                                <h4>Chicken Karaage</h4>
-                                <p>Budi Santoso</p>
-                            </div>
-
-                            <span class="success">
-                                Completed
-                            </span>
-
-                        </div>
-
+                    <div class="order-list" id="recentOrdersList">
+                        <!-- Filled dynamically by JS -->
                     </div>
-
                 </div>
-
 
                 <!-- POPULAR MENU -->
                 <div class="dashboard-card popular-menu">
-
                     <div class="card-header">
                         <h3>Popular Menu</h3>
                     </div>
-
-
-                    <div class="popular-item">
-
-                        <img src="https://i.pinimg.com/736x/fe/58/0c/fe580c83a433505a674e19b1a835ab2b.jpg">
-
-                        <div>
-                            <h4>Cheese Melt Takoyaki</h4>
-                            <p>245 Orders</p>
-                        </div>
-
+                    <div id="popularMenuList">
+                        <!-- Filled dynamically by JS -->
                     </div>
-
-
-                    <div class="popular-item">
-
-                        <img src="https://i.pinimg.com/736x/07/c9/16/07c9165f3b6b1d88c2b45d44a8fd8724.jpg">
-
-                        <div>
-                            <h4>Chicken Karaage</h4>
-                            <p>198 Orders</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="popular-item">
-
-                        <img src="https://i.pinimg.com/736x/8f/14/0b/8f140cb2c5d59b2c13d1bcf3f67f6b3.jpg">
-
-                        <div>
-                            <h4>Matcha Latte</h4>
-                            <p>175 Orders</p>
-                        </div>
-
-                    </div>
-
                 </div>
-
             </section>
-
         </section>
 
-
+        <!-- KELOLA PRODUK VIEW -->
         <section class="page-section" data-view="menu-management">
-
             <div class="management-header">
-
                 <div>
                     <p class="topbar-tag">Catalog control</p>
                     <h2>Menu Management</h2>
                 </div>
-
                 <div class="management-actions">
-
                     <div class="filter-field">
                         <label for="menuCategoryFilter">Category</label>
                         <select id="menuCategoryFilter">
@@ -315,22 +168,15 @@
                             <option value="Side Menu">Side Menu</option>
                         </select>
                     </div>
-
                     <button class="btn-gradient" id="addMenuBtn">+ Add Menu</button>
-
                 </div>
-
             </div>
 
-            <div class="management-stats"></div>
-
             <div class="dashboard-card menu-table-card">
-
                 <div class="card-header">
                     <h3>Menu Catalog</h3>
                     <button id="refreshMenuBtn">Refresh</button>
                 </div>
-
                 <div class="menu-table-wrap">
                     <table class="menu-table">
                         <thead>
@@ -342,32 +188,252 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody class="menu-table-body"></tbody>
+                        <tbody class="menu-table-body" id="menuTableBody">
+                            <!-- Filled dynamically by JS -->
+                        </tbody>
                     </table>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- KELOLA TRANSAKSI VIEW -->
+        <section class="page-section" data-view="orders">
+            <div class="management-header">
+                <div>
+                    <p class="topbar-tag">Transaction control</p>
+                    <h2>Kelola Transaksi</h2>
+                </div>
+                <div class="management-actions">
+                    <div class="filter-field">
+                        <label for="orderStatusFilter">Status</label>
+                        <select id="orderStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <button class="btn-gradient" id="refreshOrdersBtn">Refresh</button>
+                </div>
+            </div>
+
+            <div class="dashboard-card menu-table-card">
+                <div class="card-header">
+                    <h3>Order History</h3>
+                </div>
+                <div class="menu-table-wrap">
+                    <table class="menu-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Items Ordered</th>
+                                <th>Total Price</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="menu-table-body" id="ordersTableBody">
+                            <!-- Filled dynamically by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- KELOLA PENGGUNA VIEW -->
+        <section class="page-section" data-view="members">
+            <div class="management-header">
+                <div>
+                    <p class="topbar-tag">Member database</p>
+                    <h2>Kelola Pengguna</h2>
+                </div>
+                <div class="management-actions">
+                    <div class="filter-field">
+                        <label for="memberStatusFilter">Status</label>
+                        <select id="memberStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <button class="btn-gradient" id="refreshMembersBtn">Refresh</button>
+                </div>
+            </div>
+
+            <div class="dashboard-card menu-table-card">
+                <div class="card-header">
+                    <h3>Members Registry</h3>
+                </div>
+                <div class="menu-table-wrap">
+                    <table class="menu-table">
+                        <thead>
+                            <tr>
+                                <th>Member Name</th>
+                                <th>Contact Details</th>
+                                <th>Membership</th>
+                                <th>Points</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="menu-table-body" id="membersTableBody">
+                            <!-- Filled dynamically by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- KELOLA ARTIKEL VIEW -->
+        <section class="page-section" data-view="articles">
+            <div class="management-header">
+                <div>
+                    <p class="topbar-tag">Publishing control</p>
+                    <h2>Kelola Artikel</h2>
+                </div>
+                <div class="management-actions">
+                    <div class="filter-field">
+                        <label for="articleCategoryFilter">Category</label>
+                        <select id="articleCategoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="Tips & Trik">Tips & Trik</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Promo">Promo</option>
+                        </select>
+                    </div>
+                    <button class="btn-gradient" id="addArticleBtn">+ Add Article</button>
+                </div>
+            </div>
+
+            <div class="dashboard-card menu-table-card">
+                <div class="card-header">
+                    <h3>Articles List</h3>
+                    <button id="refreshArticlesBtn">Refresh</button>
+                </div>
+                <div class="menu-table-wrap">
+                    <table class="menu-table">
+                        <thead>
+                            <tr>
+                                <th>Article Title</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="menu-table-body" id="articlesTableBody">
+                            <!-- Filled dynamically by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- MODAL PRODUCTS -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeProductModal">✕</button>
+            <div class="modal-icon">🍡</div>
+            <h3 class="modal-title" id="productModalTitle">Add Product</h3>
+            <p class="modal-sub">Isi detail menu produk dengan benar.</p>
+            <form id="productForm" class="modal-form">
+                <input type="hidden" id="productId">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="text" id="productPrice" placeholder="Price (e.g. Rp 15.000)" required>
+                <select id="productCategory" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Takoyaki">Takoyaki</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Side Menu">Side Menu</option>
+                </select>
+                <input type="text" id="productBadge" placeholder="Badge (e.g. Terlaris, Favorit, Baru, optional)">
+                <input type="url" id="productImg" placeholder="Image URL (e.g. https://...)" required>
+                <textarea id="productDesc" placeholder="Description..." rows="3" required></textarea>
+                <select id="productStatus" required>
+                    <option value="available">Available</option>
+                    <option value="empty">Out of Stock</option>
+                </select>
+                <button type="submit" class="btn-primary modal-submit">Save Product</button>
+            </form>
+        </div>
+    </div>
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../js/admin/dashboard.js"></script>
+    <!-- MODAL MEMBERS -->
+    <div class="modal-overlay" id="memberEditModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeMemberModalBtn">✕</button>
+            <div class="modal-icon">👥</div>
+            <h3 class="modal-title">Edit Member</h3>
+            <p class="modal-sub">Sunting data member pengguna.</p>
+            <form id="memberForm" class="modal-form">
+                <input type="hidden" id="memberId">
+                <input type="text" id="memberNameInput" placeholder="Full Name" required>
+                <input type="email" id="memberEmailInput" placeholder="Email Address" required>
+                <input type="text" id="memberPhoneInput" placeholder="Phone Number" required>
+                <select id="memberMembershipInput" required>
+                    <option value="Bronze">Bronze</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                </select>
+                <input type="number" id="memberPointsInput" placeholder="Points" min="0" required>
+                <select id="memberStatusInput" required>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <button type="submit" class="btn-primary modal-submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ARTICLES -->
+    <div class="modal-overlay" id="articleModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeArticleModal">✕</button>
+            <div class="modal-icon">📰</div>
+            <h3 class="modal-title" id="articleModalTitle">Add Article</h3>
+            <p class="modal-sub">Buat artikel edukatif atau promo baru.</p>
+            <form id="articleForm" class="modal-form">
+                <input type="hidden" id="articleId">
+                <input type="text" id="articleTitle" placeholder="Article Title" required>
+                <select id="articleCategory" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Tips & Trik">Tips & Trik</option>
+                    <option value="Kesehatan">Kesehatan</option>
+                    <option value="Promo">Promo</option>
+                </select>
+                <input type="url" id="articleImg" placeholder="Banner Image URL" required>
+                <textarea id="articleContent" placeholder="Content text..." rows="5" required></textarea>
+                <select id="articleStatus" required>
+                    <option value="Published">Published</option>
+                    <option value="Draft">Draft</option>
+                </select>
+                <button type="submit" class="btn-primary modal-submit">Save Article</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="../../js/data/account.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/admin/dashboard.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (!Auth.requireAuth(['admin'], '../login.html')) return;
+            // Require login as admin
+            if (!Auth.requireAuth(['admin'], '../auth/login.html')) return;
 
             const logoutButton = document.querySelector('.logout-btn');
             if (logoutButton) {
                 logoutButton.addEventListener('click', () => {
-                    Auth.logout('../login.html');
+                    Auth.logout('../auth/login.html');
                 });
             }
         });
     </script>
-
 </body>
 </html>

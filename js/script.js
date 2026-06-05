@@ -70,6 +70,14 @@ const TESTIMONIALS = [
 // Selected menu: { index -> qty }
 const selectedMenu = {};
 
+// Get active menu (dynamic or hardcoded fallback)
+function getActiveMenu() {
+    return window.dummyMenu || MENU_OVERRIDES;
+}
+
+
+
+
 // ── Fallback images if Pinterest blocks
 function fallbackImg(img, name) {
     img.onerror = null;
@@ -116,11 +124,12 @@ function renderOrderPicker() {
     if (!picker) return;
     picker.innerHTML = "";
 
-    MENU_OVERRIDES.forEach(item => {
+    const activeMenu = getActiveMenu();
+    activeMenu.forEach(item => {
         item.priceNum = parseInt(item.price.replace(/\D/g, ""));
     });
 
-    MENU_OVERRIDES.forEach((item, i) => {
+    activeMenu.forEach((item, i) => {
         const chip = document.createElement("div");
         chip.className = "menu-chip";
         chip.id = `chip-${i}`;
@@ -218,7 +227,7 @@ function previewOrder() {
     let total = 0;
 
     Object.entries(selectedMenu).forEach(([idx, qty]) => {
-        const item = MENU_OVERRIDES[parseInt(idx)];
+        const item = getActiveMenu()[parseInt(idx)];
         const subtotal = item.priceNum * qty;
         total += subtotal;
         const row = document.createElement("div");
@@ -249,9 +258,58 @@ function submitOrder() {
     // Final guard
     if (Object.keys(selectedMenu).length === 0 || !name || !phone) return;
 
+    const activeMenu = getActiveMenu();
     const menuStr = Object.entries(selectedMenu)
-        .map(([idx, qty]) => `${MENU_OVERRIDES[idx].name} ×${qty}`)
+        .map(([idx, qty]) => `${activeMenu[idx].name} ×${qty}`)
         .join(", ");
+
+    // Create new order object for local storage / admin sync
+    const orders = window.dummyOrders || [];
+    let nextIdNum = 9025;
+    if (orders.length > 0) {
+        const lastOrder = orders[orders.length - 1];
+        if (lastOrder && lastOrder.id.startsWith("TX-")) {
+            nextIdNum = parseInt(lastOrder.id.split("-")[1]) + 1;
+        }
+    }
+    const orderId = `TX-${nextIdNum}`;
+
+    const orderItems = Object.entries(selectedMenu).map(([idx, qty]) => {
+        const item = activeMenu[parseInt(idx)];
+        return {
+            name: item.name,
+            qty: qty,
+            price: item.priceNum || parseInt(item.price.replace(/\D/g, ""))
+        };
+    });
+
+    const totalVal = orderItems.reduce((acc, it) => acc + (it.price * it.qty), 0);
+
+    const now = new Date();
+    const dateStr = now.getFullYear() + "-" + 
+                    String(now.getMonth() + 1).padStart(2, '0') + "-" + 
+                    String(now.getDate()).padStart(2, '0') + " " + 
+                    String(now.getHours()).padStart(2, '0') + ":" + 
+                    String(now.getMinutes()).padStart(2, '0') + ":" + 
+                    String(now.getSeconds()).padStart(2, '0');
+
+    const newOrder = {
+        id: orderId,
+        customerName: name,
+        customerPhone: phone,
+        items: orderItems,
+        totalPrice: totalVal,
+        date: dateStr,
+        note: note,
+        status: "Pending"
+    };
+
+    if (window.dummyOrders) {
+        window.dummyOrders.push(newOrder);
+        if (typeof window.saveOrders === "function") {
+            window.saveOrders();
+        }
+    }
 
     msg.style.display = "block";
     msg.className = "order-msg success";
@@ -355,10 +413,10 @@ async function fetchMenu() {
         const res = await fetch("https://dummyjson.com/products?limit=8&select=id,title,price,thumbnail");
         if (!res.ok) throw new Error("API error");
         // API call confirms connectivity; use themed data
-        renderMenu(MENU_OVERRIDES);
+        renderMenu(getActiveMenu());
     } catch (err) {
         console.warn("API unavailable, using local data:", err.message);
-        renderMenu(MENU_OVERRIDES);
+        renderMenu(getActiveMenu());
     }
 }
 
@@ -444,6 +502,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Init sections
+    // Check for login errors redirected from login page
+    const authError = localStorage.getItem('authError');
+    if (authError === 'belum_ada_akun') {
+        localStorage.removeItem('authError');
+        alert("⚠️ Maaf, akun belum terdaftar di data kami.");
+    }
     fetchMenu();
     renderTestimonials();
     renderOrderPicker();

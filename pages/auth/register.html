@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="../../style/style.css">
     <link rel="stylesheet" href="../../style/auth/register.css"> 
 
-    <script src="../../js/script.js"></script>
+    <script src="../../js/script.js" defer></script>
     <script src="../../js/data/account.js" defer></script>
     <script src="../../js/auth.js" defer></script>
+    <script src="../../js/auth/register.js" defer></script>
 
 </head>
 <body>
@@ -69,6 +70,7 @@
                 <p class="register-card-note">Isi data singkat untuk mulai bergabung dan klaim keuntungan member langsung.</p>
 
                 <form id="registerForm">
+                    <div id="registerError" class="error-box" style="display: none;"></div>
                     <div class="input-group">
                         <label for="fullName">Full Name</label>
                         <input type="text" id="fullName" placeholder="Masukkan nama lengkap" required>
