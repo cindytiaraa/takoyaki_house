@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya — Takoyaki House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/member/member-layout.css">
+    <link rel="stylesheet" href="../../style/member/home.css">
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/member/member-components.js"></script>
+    <script src="../../js/member/member-layout.js"></script>
+    <script src="../../js/member/profil.js" defer></script>
+</head>
+<body>
+<div class="member-page-body">
+
+    <section class="member-page-hero">
+        <div class="deco-circle"></div>
+        <div class="member-page-hero-inner">
+            <span class="hero-tag">Member Area</span>
+            <h1>Profil <em>Saya</em></h1>
+            <p>Kelola informasi akun dan preferensi kamu.</p>
+        </div>
+    </section>
+
+    <div class="member-content">
+        <div class="m-card">
+
+            <!-- Avatar & tier -->
+            <div class="profil-top">
+                <div class="profil-avatar-big" id="profilAvatarBig">A</div>
+                <div class="profil-top-info">
+                    <h2 id="profilDisplayName">Member</h2>
+                    <span class="profil-tier-badge" id="profilTierBadge">Bronze Member</span>
+                    <p class="profil-points">⭐ <strong id="profilPoints">0</strong> poin</p>
+                </div>
+            </div>
+
+            <div class="profil-divider"></div>
+
+            <!-- Form -->
+            <div class="profil-form">
+                <div class="profil-field">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="profilName" placeholder="Nama lengkap kamu">
+                </div>
+                <div class="profil-field">
+                    <label>Email</label>
+                    <input type="email" id="profilEmail" placeholder="Email" readonly>
+                </div>
+                <div class="profil-field">
+                    <label>No. HP / WhatsApp</label>
+                    <input type="text" id="profilPhone" placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="profil-field">
+                    <label>Menu Favorit</label>
+                    <input type="text" id="profilFav" placeholder="Contoh: Takoyaki Cheese">
+                </div>
+
+                <div class="profil-field-row">
+                    <button class="btn-primary" id="btnSaveProfil">Simpan Perubahan</button>
+                    <span class="profil-save-msg" id="profilSaveMsg"></span>
+                </div>
+            </div>
+
+            <div class="profil-divider"></div>
+
+            <!-- Ganti password -->
+            <div class="profil-section-title">Keamanan Akun</div>
+            <div class="profil-form">
+                <div class="profil-field">
+                    <label>Password Baru</label>
+                    <input type="password" id="profilNewPass" placeholder="Minimal 6 karakter">
+                </div>
+                <div class="profil-field">
+                    <label>Konfirmasi Password</label>
+                    <input type="password" id="profilConfPass" placeholder="Ulangi password baru">
+                </div>
+                <div class="profil-field-row">
+                    <button class="btn-outline-orange" id="btnChangePass">Ganti Password</button>
+                    <span class="profil-save-msg" id="passSaveMsg"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="member-footer">
+        <p>© 2026 Takoyaki House · Member Area</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takoyaki House</title>
+    <title>Artikel — Takoyaki House</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/promo.css">
+    <link rel="stylesheet" href="../style/artikel.css">
 
     <script src="../js/data/account.js" defer></script>
     <script src="../js/data/menuData.js" defer></script>
     <script src="../js/data/orderData.js" defer></script>
+    <script src="../js/data/articleData.js" defer></script>
     <script src="../js/auth.js" defer></script>
     <script src="../js/script.js" defer></script>
+    <script src="../js/artikel.js" defer></script>
 </head>
 <body>
 
@@ -48,7 +50,7 @@
                 <span class="cart-count" id="cartCount">2</span>
             </a>
         </div>
-        
+
         <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
@@ -64,7 +66,7 @@
     </div>
 </header>
 
-<!--  JOIN MEMBER -->
+<!-- JOIN MEMBER -->
 <div class="modal-overlay" id="memberModal">
     <div class="modal-box">
         <button class="modal-close" id="closeMemberModal">✕</button>
@@ -89,123 +91,47 @@
     </div>
 </div>
 
-<!-- PROMO SECTION -->
-<section class="today-promo">
-
-    <!-- LEFT CONTENT -->
-    <div class="promo-left">
-
-        <span class="promo-tag">
-            🔥 Today's Special
-        </span>
-
-        <h2>
-            Buy 2 Large Takoyaki <br>
-            Get Free Ocha Ice
-        </h2>
-
-        <p>
-            Nikmati promo spesial hari ini dengan berbagai
-            pilihan menu favorit Takoyaki House.
-            Lebih hemat, lebih lezat, dan cocok dinikmati
-            bersama teman maupun keluarga.
-        </p>
-
-        <button>
-            <a href="order.html">Order Now</a>
-        </button>
-
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="deco deco-solid deco-1"></div>
+    <div class="deco deco-outline deco-2"></div>
+    <div class="page-hero-inner">
+        <p class="hero-tag">Blog & Insight</p>
+        <h1 class="page-hero-title">Arsip <em>Artikel</em></h1>
+        <p class="page-hero-sub">Cerita, tips, dan promo terbaru dari dapur Takoyaki House.</p>
     </div>
+</section>
 
-
-    <!-- RIGHT CONTENT -->
-    <div class="promo-right">
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Best Seller
-                </span>
-
-                <span class="recommend-price">
-                    Rp 25.000
-                </span>
-            </div>
-
-            <h3>
-                Cheese Melt Takoyaki
-            </h3>
-
-            <p>
-                Takoyaki creamy dengan mozzarella lumer
-                dan saus spesial khas Takoyaki House.
-            </p>
-
-        </div>
-
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Most Favorite
-                </span>
-
-                <span class="recommend-price">
-                    Rp 12.000
-                </span>
-            </div>
-
-            <h3>
-                Matcha Latte
-            </h3>
-
-            <p>
-                Minuman matcha creamy dengan rasa manis
-                dan segar yang cocok menemani menu utama.
-            </p>
-
-        </div>
-
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Hot Menu
-                </span>
-
-                <span class="recommend-price">
-                    Rp 18.000
-                </span>
-            </div>
-
-            <h3>
-                Chicken Karaage
-            </h3>
-
-            <p>
-                Ayam crispy ala Jepang dengan bumbu gurih
-                dan tekstur renyah di setiap gigitan.
-            </p>
-
-        </div>
-
+<!-- FILTER BAR -->
+<section class="artikel-filter-bar">
+    <div class="artikel-filter-inner">
+        <button class="filter-btn active" data-cat="Semua">Semua</button>
+        <button class="filter-btn" data-cat="Tips & Trik">Tips & Trik</button>
+        <button class="filter-btn" data-cat="Kesehatan">Kesehatan</button>
+        <button class="filter-btn" data-cat="Promo">Promo</button>
+        <button class="filter-btn" data-cat="Resep">Resep</button>
     </div>
+</section>
 
+<!-- ARTIKEL GRID -->
+<section class="artikel-section">
+    <div class="artikel-grid" id="artikelGrid">
+        <!-- JS rendered -->
+        <div class="menu-skeleton" style="height:320px;"></div>
+        <div class="menu-skeleton" style="height:320px;"></div>
+        <div class="menu-skeleton" style="height:320px;"></div>
+    </div>
+    <p class="artikel-empty" id="artikelEmpty" style="display:none;">Belum ada artikel di kategori ini.</p>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer" id="contact">
+<footer class="footer">
     <div class="deco deco-1"></div>
     <div class="deco deco-2"></div>
     <div class="deco deco-3"></div>
     <div class="deco deco-4"></div>
     <div class="deco deco-5"></div>
-
     <div class="footer-inner">
-
         <div class="footer-divider"></div>
         <div class="footer-brand">TAKOYAKI HOUSE</div>
         <div class="footer-socials">

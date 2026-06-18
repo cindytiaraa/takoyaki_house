@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Transaksi — Takoyaki House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/member/member-layout.css">
+    <link rel="stylesheet" href="../../style/member/home.css">
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/member/member-components.js"></script>
+    <script src="../../js/member/member-layout.js"></script>
+    <script src="../../js/member/riwayat.js" defer></script>
+</head>
+<body>
+<div class="member-page-body">
+
+    <section class="member-page-hero">
+        <div class="deco-circle"></div>
+        <div class="member-page-hero-inner">
+            <span class="hero-tag">Member Area</span>
+            <h1>Riwayat <em>Transaksi</em></h1>
+            <p>Semua histori pesananmu tercatat di sini.</p>
+        </div>
+    </section>
+
+    <div class="member-content">
+
+        <!-- STATS -->
+        <div class="mh-stats-grid" style="grid-template-columns:repeat(3,1fr);">
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">🧾</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="rwTotal">0</div>
+                    <div class="mh-stat-label">Total Transaksi</div>
+                </div>
+            </div>
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">✅</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="rwDone">0</div>
+                    <div class="mh-stat-label">Selesai</div>
+                </div>
+            </div>
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">💰</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="rwSpend">Rp 0</div>
+                    <div class="mh-stat-label">Total Belanja</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTER -->
+        <div class="m-card">
+            <div class="m-card-header">
+                <h3>Semua Pesanan</h3>
+                <div class="filter-chips">
+                    <button class="filter-chip active" data-status="Semua">Semua</button>
+                    <button class="filter-chip" data-status="Completed">Selesai</button>
+                    <button class="filter-chip" data-status="Pending">Pending</button>
+                    <button class="filter-chip" data-status="Cancelled">Dibatal</button>
+                </div>
+            </div>
+            <div id="riwayatList">
+                <div class="m-empty">
+                    <div class="m-empty-icon">📋</div>
+                    <p>Belum ada riwayat transaksi.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="member-footer">
+        <p>© 2026 Takoyaki House · Member Area</p>
+    </footer>
+</div>
+</body>
+</html>

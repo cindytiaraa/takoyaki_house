@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Langsung — Takoyaki House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/member/member-layout.css">
+    <link rel="stylesheet" href="../../style/member/home.css">
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/member/member-components.js"></script>
+    <script src="../../js/member/member-layout.js"></script>
+    <script src="../../js/member/order.js" defer></script>
+</head>
+<body>
+<div class="member-page-body">
+
+    <section class="member-page-hero">
+        <div class="deco-circle"></div>
+        <div class="member-page-hero-inner">
+            <span class="hero-tag">Member Area</span>
+            <h1>Order <em>Langsung</em></h1>
+            <p>Pilih menu dan submit pesananmu dengan cepat.</p>
+        </div>
+    </section>
+
+    <div class="member-content">
+
+        <!-- Info member -->
+        <div class="m-card order-info-card">
+            <div class="m-card-header">
+                <h3>Info Pemesan</h3>
+            </div>
+            <div class="order-info-row">
+                <div class="order-field">
+                    <label>Nama</label>
+                    <input type="text" id="orderName" placeholder="Nama pemesan">
+                </div>
+                <div class="order-field">
+                    <label>No. WhatsApp</label>
+                    <input type="text" id="orderPhone" placeholder="08xxxxxxxxxx">
+                </div>
+            </div>
+            <div class="order-field">
+                <label>Catatan (opsional)</label>
+                <textarea id="orderNote" rows="2" placeholder="Contoh: tidak pedes, extra saus..."></textarea>
+            </div>
+        </div>
+
+        <!-- Pilih menu -->
+        <div class="m-card">
+            <div class="m-card-header">
+                <h3>Pilih Menu</h3>
+                <span class="m-card-action" id="selectedCount">0 item dipilih</span>
+            </div>
+            <p class="order-hint" id="orderHint" style="display:none;">⚠️ Pilih minimal 1 menu.</p>
+            <div id="orderMenuGrid" class="order-menu-grid"></div>
+        </div>
+
+        <!-- Summary & submit -->
+        <div class="m-card order-summary-card" id="orderSummaryCard" style="display:none;">
+            <div class="m-card-header"><h3>Ringkasan Pesanan</h3></div>
+            <div id="orderSummaryLines" class="ks-lines"></div>
+            <div class="ks-divider"></div>
+            <div class="ks-grand">
+                <span>Total</span>
+                <strong id="orderSummaryTotal">Rp 0</strong>
+            </div>
+        </div>
+
+        <div class="order-actions">
+            <button class="btn-outline-orange" id="btnPreviewOrder">Preview Pesanan</button>
+            <button class="btn-primary" id="btnSubmitOrder" style="display:none;">✅ Submit Pesanan</button>
+        </div>
+
+        <div class="order-result-msg" id="orderResultMsg" style="display:none;"></div>
+
+    </div>
+
+    <footer class="member-footer">
+        <p>© 2026 Takoyaki House · Member Area</p>
+    </footer>
+</div>
+</body>
+</html>

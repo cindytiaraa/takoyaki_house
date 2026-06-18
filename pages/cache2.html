@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/promo.css">
-
+    <link rel="stylesheet" href="../style/home.css">
     <script src="../js/data/account.js" defer></script>
     <script src="../js/data/menuData.js" defer></script>
     <script src="../js/data/orderData.js" defer></script>
@@ -48,7 +47,7 @@
                 <span class="cart-count" id="cartCount">2</span>
             </a>
         </div>
-        
+
         <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
@@ -89,111 +88,98 @@
     </div>
 </div>
 
-<!-- PROMO SECTION -->
-<section class="today-promo">
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <!-- Decorative circles (takoyaki balls) -->
+    <div class="deco deco-solid deco-1"></div>
+    <div class="deco deco-outline deco-2"></div>
+    <div class="deco deco-navy deco-3"></div>
+    <div class="deco deco-outline deco-4"></div>
+    <div class="deco deco-solid deco-5"></div>
+    <div class="deco-dots deco-dots-tl"></div>
+    <div class="deco-dots deco-dots-br"></div>
 
-    <!-- LEFT CONTENT -->
-    <div class="promo-left">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <p class="hero-tag">🔥 Fresh Every Day</p>
+            <h1 class="hero-title">Takoyaki<br><em>Enak & Murah</em><br>di Surabaya</h1>
+            <p class="hero-sub">Authentic Japanese street food dengan cita rasa modern. Dibuat fresh setiap hari dari bahan pilihan berkualitas tinggi.</p>
+            <div class="hero-cta">
+                <a href="menu.html" class="btn-primary">Lihat Menu</a>
+                <a href="order.html" class="btn-secondary">Order Sekarang →</a>
+            </div>
+        </div>
 
-        <span class="promo-tag">
-            🔥 Today's Special
-        </span>
-
-        <h2>
-            Buy 2 Large Takoyaki <br>
-            Get Free Ocha Ice
-        </h2>
-
-        <p>
-            Nikmati promo spesial hari ini dengan berbagai
-            pilihan menu favorit Takoyaki House.
-            Lebih hemat, lebih lezat, dan cocok dinikmati
-            bersama teman maupun keluarga.
-        </p>
-
-        <button>
-            <a href="order.html">Order Now</a>
-        </button>
-
+        <!-- VIDEO  -->
+        <div class="hero-image-wrap">
+            <div class="video-mockup">
+                <div class="browser-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+                <div class="video-frame">
+                    <iframe
+                        src="https://www.youtube.com/embed/P5g9bUVrCHg?autoplay=0&rel=0&modestbranding=1"
+                        title="Takoyaki Making Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-    <!-- RIGHT CONTENT -->
-    <div class="promo-right">
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Best Seller
-                </span>
-
-                <span class="recommend-price">
-                    Rp 25.000
-                </span>
-            </div>
-
-            <h3>
-                Cheese Melt Takoyaki
-            </h3>
-
-            <p>
-                Takoyaki creamy dengan mozzarella lumer
-                dan saus spesial khas Takoyaki House.
-            </p>
-
-        </div>
-
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Most Favorite
-                </span>
-
-                <span class="recommend-price">
-                    Rp 12.000
-                </span>
-            </div>
-
-            <h3>
-                Matcha Latte
-            </h3>
-
-            <p>
-                Minuman matcha creamy dengan rasa manis
-                dan segar yang cocok menemani menu utama.
-            </p>
-
-        </div>
-
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Hot Menu
-                </span>
-
-                <span class="recommend-price">
-                    Rp 18.000
-                </span>
-            </div>
-
-            <h3>
-                Chicken Karaage
-            </h3>
-
-            <p>
-                Ayam crispy ala Jepang dengan bumbu gurih
-                dan tekstur renyah di setiap gigitan.
-            </p>
-
-        </div>
-
+    <div class="hero-quote">
+        <p>"Takoyaki terenak yang pernah aku coba! Crispy di luar, lembut di dalam."</p>
+        <span>— Budi Santoso, Pelanggan Setia</span>
     </div>
+</section>
 
+<!-- DARK BANNER -->
+<section class="dark-banner" id="about">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+
+    <div class="dark-banner-inner">
+        <div class="db-text">
+            <h2>Kenapa Pilih<br>Takoyaki House?</h2>
+            <p>Kami menggunakan bahan segar berkualitas tinggi, dimasak langsung saat kamu pesan. Tidak ada pengawet, tidak ada kompromi soal rasa.</p>
+            <p class="db-quote">"Rasanya kayak langsung dari Tokyo — nggak bohong!"</p>
+            <div class="db-author">
+                <div class="db-avatar">A</div>
+                <span>Ayu Pratiwi, Food Blogger Surabaya</span>
+            </div>
+        </div>
+        <div class="db-images">
+            <div class="db-img-card db-img-front">
+               <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" alt="Takoyaki">
+            </div>
+            <div class="db-img-card db-img-back"></div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURE SECTION -->
+<section class="feature-section">
+    <div class="feature-img-block">
+        <img src="https://i.pinimg.com/736x/fe/58/0c/fe580c83a433505a674e19b1a835ab2b.jpg" alt="Feature">
+    </div>
+    <div class="feature-text-block">
+        <h3>Fresh, Crispy & Authentic</h3>
+        <p>Setiap bola takoyaki kami dibuat dengan adonan premium, gurita asli, dan saus khas yang diracik sendiri. Dipanggang sempurna di atas wajan besi panas.</p>
+        <a href="menu.html" class="btn-outline">Lihat Semua Menu</a>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+    <div class="section-header">
+        <h2>Apa Kata Mereka?</h2>
+        <p>Ribuan pelanggan sudah puas — giliran kamu!</p>
+    </div>
+    <div class="testi-grid" id="testiGrid"></div>
 </section>
 
 <!-- FOOTER -->

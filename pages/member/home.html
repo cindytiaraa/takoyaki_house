@@ -3,51 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Home - Takoyaki House</title>
+    <title>Beranda Member — Takoyaki House</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/member/home.css">
-
-    <script src="../js/auth.js"></script>
-    <script src="../js/member/home.js" defer></script>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/member/member-layout.css">
+    <link rel="stylesheet" href="../../style/member/home.css">
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/member/member-components.js"></script>
+    <script src="../../js/member/member-layout.js"></script>
+    <script src="../../js/member/home.js" defer></script>
 </head>
 <body>
-    <header class="navbar" id="navbar">
-        <div class="nav-inner">
-            <div class="logo">
-                <div class="logo-icon">
-                    <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+<div class="member-page-body">
+
+    <!-- HERO -->
+    <section class="member-page-hero">
+        <div class="deco-circle"></div>
+        <div class="member-page-hero-inner">
+            <span class="hero-tag">Member Area</span>
+            <h1>Selamat Datang, <em id="heroName">Member</em>!</h1>
+            <p>Nikmati promo eksklusif dan kelola pesananmu di sini.</p>
+        </div>
+    </section>
+
+    <div class="member-content">
+
+        <!-- STATS -->
+        <div class="mh-stats-grid">
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">🏆</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="statMembership">Bronze</div>
+                    <div class="mh-stat-label">Membership</div>
                 </div>
-                <span class="logo-text">Takoyaki House</span>
             </div>
-            <nav class="nav-links">
-                <a href="menu.html">Menu</a>
-                <a href="promo.html">Promo</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="nav-actions">
-                <button class="btn-member" id="logoutButton">Logout</button>
-                <a href="order.html" class="btn-nav">Order Now</a>
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">⭐</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="statPoints">0</div>
+                    <div class="mh-stat-label">Poin Kamu</div>
+                </div>
+            </div>
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">📦</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="statOrders">0</div>
+                    <div class="mh-stat-label">Total Order</div>
+                </div>
+            </div>
+            <div class="mh-stat-card">
+                <div class="mh-stat-icon">✅</div>
+                <div class="mh-stat-body">
+                    <div class="mh-stat-value" id="statDone">0</div>
+                    <div class="mh-stat-label">Selesai</div>
+                </div>
             </div>
         </div>
-    </header>
 
-    <main class="member-home-page">
-        <section class="hero">
-            <div class="hero-inner">
-                <div class="hero-text">
-                    <p class="hero-tag">Selamat datang sebagai member</p>
-                    <h1 class="hero-title">Halo, <span id="memberName">Member</span></h1>
-                    <p class="hero-sub">Nikmati promo eksklusif, kelola pesananmu, dan pesan favorit dengan cepat.</p>
-                    <div class="hero-cta">
-                        <a href="menu.html" class="btn-primary">Lihat Menu</a>
-                        <a href="order.html" class="btn-secondary">Order Sekarang →</a>
-                    </div>
+        <!-- PROMO BANNER -->
+        <div class="mh-promo-banner">
+            <div class="mh-promo-text">
+                <p class="mh-promo-tag">🎉 Promo Aktif</p>
+                <h3>Diskon 10% untuk Member!</h3>
+                <p>Tunjukkan kartu member saat checkout. Berlaku setiap hari.</p>
+            </div>
+            <a href="promo.html" class="btn-primary mh-promo-btn">Lihat Promo →</a>
+        </div>
+
+        <!-- ORDER TERBARU -->
+        <div class="m-card">
+            <div class="m-card-header">
+                <h3>Order Terbaru</h3>
+                <a href="riwayat.html" class="m-card-action">Lihat Semua →</a>
+            </div>
+            <div id="homeRecentOrders">
+                <div class="m-empty">
+                    <div class="m-empty-icon">📋</div>
+                    <p>Belum ada order. <a href="order.html">Pesan sekarang →</a></p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="mh-quicklinks">
+            <a href="order.html" class="mh-ql-card">
+                <span class="mh-ql-icon">⚡</span>
+                <span>Order Sekarang</span>
+            </a>
+            <a href="keranjang.html" class="mh-ql-card">
+                <span class="mh-ql-icon">🛒</span>
+                <span>Keranjang</span>
+            </a>
+            <a href="favorit.html" class="mh-ql-card">
+                <span class="mh-ql-icon">⭐</span>
+                <span>Favorit</span>
+            </a>
+            <a href="profil.html" class="mh-ql-card">
+                <span class="mh-ql-icon">👤</span>
+                <span>Profil</span>
+            </a>
+            <a href="notifikasi.html" class="mh-ql-card">
+                <span class="mh-ql-icon">🔔</span>
+                <span>Notifikasi</span>
+            </a>
+            <a href="../menu.html" class="mh-ql-card">
+                <span class="mh-ql-icon">🍡</span>
+                <span>Lihat Menu</span>
+            </a>
+        </div>
+
+    </div><!-- /member-content -->
+
+    <footer class="member-footer">
+        <p>© 2026 Takoyaki House · Member Area<br>📍 Surabaya, Jawa Timur · 🕒 10:00–22:00</p>
+    </footer>
+</div>
 </body>
 </html>

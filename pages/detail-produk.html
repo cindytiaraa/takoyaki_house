@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takoyaki House</title>
+    <title>Detail Produk — Takoyaki House</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/promo.css">
+    <link rel="stylesheet" href="../style/detail-produk.css">
 
     <script src="../js/data/account.js" defer></script>
     <script src="../js/data/menuData.js" defer></script>
     <script src="../js/data/orderData.js" defer></script>
     <script src="../js/auth.js" defer></script>
     <script src="../js/script.js" defer></script>
+    <script src="../js/detail-produk.js" defer></script>
 </head>
 <body>
 
@@ -30,41 +31,29 @@
         </div>
         <nav class="nav-links">
             <a href="home.html">Home</a>
-            <a href="promo.html">Promo</a>
+            <a href="menu.html" class="nav-active">Menu</a>
             <a href="artikel.html">Artikel</a>
-            <a href="menu.html">Menu</a>
             <a href="contact.html">Contact</a>
         </nav>
-
         <div class="nav-actions">
             <button class="btn-member" id="openMemberModal">Join Member</button>
-            <a href="order.html" class="btn-nav">Order Now</a>
+            <a href="keranjang.html" class="btn-nav">🛒 Keranjang</a>
         </div>
-
-        <!-- Keranjang Cart Icon -->
-        <div class="cart-icon" style="position: relative; color: #fff;">
-            <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" width="30">
-                <span class="cart-count" id="cartCount">2</span>
-            </a>
-        </div>
-        
         <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
         <a href="home.html">Home</a>
-        <a href="promo.html">Promo</a>
-        <a href="artikel.html">Artikel</a>
         <a href="menu.html">Menu</a>
+        <a href="artikel.html">Artikel</a>
         <a href="contact.html">Contact</a>
         <button class="btn-member" onclick="openMember()">Join Member</button>
-        <a href="order.html" class="btn-nav">Order Now</a>
+        <a href="keranjang.html" class="btn-nav">🛒 Keranjang</a>
     </div>
 </header>
 
-<!--  JOIN MEMBER -->
+<!-- JOIN MEMBER -->
 <div class="modal-overlay" id="memberModal">
     <div class="modal-box">
         <button class="modal-close" id="closeMemberModal">✕</button>
@@ -89,123 +78,53 @@
     </div>
 </div>
 
-<!-- PROMO SECTION -->
-<section class="today-promo">
-
-    <!-- LEFT CONTENT -->
-    <div class="promo-left">
-
-        <span class="promo-tag">
-            🔥 Today's Special
-        </span>
-
-        <h2>
-            Buy 2 Large Takoyaki <br>
-            Get Free Ocha Ice
-        </h2>
-
-        <p>
-            Nikmati promo spesial hari ini dengan berbagai
-            pilihan menu favorit Takoyaki House.
-            Lebih hemat, lebih lezat, dan cocok dinikmati
-            bersama teman maupun keluarga.
-        </p>
-
-        <button>
-            <a href="order.html">Order Now</a>
-        </button>
-
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar" style="margin-top:64px;">
+    <div class="breadcrumb-inner">
+        <a href="home.html">Home</a>
+        <span>›</span>
+        <a href="menu.html">Menu</a>
+        <span>›</span>
+        <span id="breadcrumbProduk">Detail Produk</span>
     </div>
+</div>
 
-
-    <!-- RIGHT CONTENT -->
-    <div class="promo-right">
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Best Seller
-                </span>
-
-                <span class="recommend-price">
-                    Rp 25.000
-                </span>
-            </div>
-
-            <h3>
-                Cheese Melt Takoyaki
-            </h3>
-
-            <p>
-                Takoyaki creamy dengan mozzarella lumer
-                dan saus spesial khas Takoyaki House.
-            </p>
-
+<!-- DETAIL PRODUK -->
+<section class="detail-produk-wrap">
+    <div class="detail-produk-inner" id="detailProdukInner">
+        <!-- JS rendered -->
+        <div class="dp-skeleton-img"></div>
+        <div class="dp-skeleton-info">
+            <div class="skel-title"></div>
+            <div class="skel-meta"></div>
+            <div class="skel-line"></div>
+            <div class="skel-line short"></div>
         </div>
-
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Most Favorite
-                </span>
-
-                <span class="recommend-price">
-                    Rp 12.000
-                </span>
-            </div>
-
-            <h3>
-                Matcha Latte
-            </h3>
-
-            <p>
-                Minuman matcha creamy dengan rasa manis
-                dan segar yang cocok menemani menu utama.
-            </p>
-
-        </div>
-
-
-        <div class="recommend-card">
-
-            <div class="recommend-top">
-                <span class="recommend-badge">
-                    Hot Menu
-                </span>
-
-                <span class="recommend-price">
-                    Rp 18.000
-                </span>
-            </div>
-
-            <h3>
-                Chicken Karaage
-            </h3>
-
-            <p>
-                Ayam crispy ala Jepang dengan bumbu gurih
-                dan tekstur renyah di setiap gigitan.
-            </p>
-
-        </div>
-
     </div>
-
 </section>
 
+<!-- PRODUK LAINNYA -->
+<section class="related-section">
+    <div class="section-header">
+        <h2>Produk Lainnya</h2>
+        <p>"Mungkin kamu juga suka ini?"</p>
+    </div>
+    <div class="related-grid" id="relatedGrid">
+        <!-- JS rendered -->
+    </div>
+</section>
+
+<!-- TOAST -->
+<div class="dp-toast" id="dpToast"></div>
+
 <!-- FOOTER -->
-<footer class="footer" id="contact">
+<footer class="footer">
     <div class="deco deco-1"></div>
     <div class="deco deco-2"></div>
     <div class="deco deco-3"></div>
     <div class="deco deco-4"></div>
     <div class="deco deco-5"></div>
-
     <div class="footer-inner">
-
         <div class="footer-divider"></div>
         <div class="footer-brand">TAKOYAKI HOUSE</div>
         <div class="footer-socials">

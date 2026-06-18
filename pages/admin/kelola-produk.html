@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Produk - Takoyaki House</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/admin/dashboard.css">
+    <link rel="stylesheet" href="../../style/admin/kelola-produk.css">
+
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/admin/kelola-produk.js"></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+            <div class="sidebar-logo">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
+                <div>
+                    <h2>Takoyaki</h2>
+                    <p>Admin Panel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="kelola-produk.html">
+                🍡 Kelola Produk
+            </a>
+
+            <a href="kelola-transaksi.html">
+                🧾 Kelola Transaksi
+            </a>
+
+            <a href="kelola-user.html">
+                👥 Kelola Pengguna
+            </a>
+
+            <a href="kelola-artikel.html">
+                📰 Kelola Artikel
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="dashboard-main">
+
+        <div class="management-header">
+            <div>
+                <p class="topbar-tag">Catalog control</p>
+                <h2>Menu Management</h2>
+            </div>
+
+            <div class="management-actions">
+                <div class="filter-field">
+                    <label>Category</label>
+
+                    <select id="menuCategoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="Takoyaki">Takoyaki</option>
+                        <option value="Drinks">Drinks</option>
+                        <option value="Side Menu">Side Menu</option>
+                    </select>
+                </div>
+
+                <button class="btn-gradient" id="addMenuBtn">
+                    + Add Menu
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card menu-table-card">
+
+            <div class="card-header">
+
+                <h3>Menu Catalog</h3>
+
+                <button id="refreshMenuBtn">
+                    Refresh
+                </button>
+
+            </div>
+
+            <div class="menu-table-wrap">
+
+                <table class="menu-table">
+
+                    <thead>
+                        <tr>
+                            <th>Menu Item</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="menuTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- PRODUCT MODAL -->
+
+    <div class="modal-overlay" id="productModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" id="closeProductModal">
+                ✕
+            </button>
+
+            <div class="modal-icon">
+                🍡
+            </div>
+
+            <h3 class="modal-title" id="productModalTitle">
+                Add Product
+            </h3>
+
+            <form id="productForm" class="modal-form">
+
+                <input type="hidden" id="productId">
+
+                <input type="text" id="productName" placeholder="Product Name" required>
+
+                <input type="text" id="productPrice" placeholder="Price" required>
+
+                <select id="productCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Takoyaki">Takoyaki</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Side Menu">Side Menu</option>
+                </select>
+
+                <input type="text" id="productBadge" placeholder="Badge">
+
+                <input type="url" id="productImg" placeholder="Image URL">
+
+                <textarea id="productDesc" rows="4"></textarea>
+
+                <select id="productStatus">
+                    <option value="available">Available</option>
+                    <option value="empty">Out of Stock</option>
+                </select>
+
+                <button type="submit" class="modal-submit">
+                    Save Product
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

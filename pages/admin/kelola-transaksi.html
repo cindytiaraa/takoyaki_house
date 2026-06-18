@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Transaksi</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/admin/dashboard.css">
+    <link rel="stylesheet" href="../../style/admin/kelola-transaksi.css">
+
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/admin/kelola-transaksi.js"></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+            <div class="sidebar-logo">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
+                <div>
+                    <h2>Takoyaki</h2>
+                    <p>Admin Panel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="kelola-produk.html">
+                🍡 Kelola Produk
+            </a>
+
+            <a href="kelola-transaksi.html">
+                🧾 Kelola Transaksi
+            </a>
+
+            <a href="kelola-user.html">
+                👥 Kelola Pengguna
+            </a>
+
+            <a href="kelola-artikel.html">
+                📰 Kelola Artikel
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="dashboard-main">
+
+        <div class="management-header">
+            <div>
+                <p class="topbar-tag">
+                    Transaction control
+                </p>
+
+                <h2>
+                    Kelola Transaksi
+                </h2>
+            </div>
+
+            <div class="management-actions">
+
+                <div class="filter-field">
+
+                    <label>Status</label>
+
+                    <select id="orderStatusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                        <option value="Cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button
+                    class="btn-gradient"
+                    id="refreshOrdersBtn">
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card menu-table-card">
+
+            <div class="card-header">
+
+                <h3>Order History</h3>
+
+            </div>
+
+            <div class="menu-table-wrap">
+
+                <table class="menu-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="ordersTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

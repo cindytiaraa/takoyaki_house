@@ -1,0 +1,81 @@
+.management-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:30px;
+}
+
+.management-actions{
+    display:flex;
+    gap:16px;
+}
+
+.filter-field{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.filter-field select{
+    padding:14px;
+    min-width:180px;
+    border-radius:14px;
+    border:1px solid #ddd;
+}
+
+.menu-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.menu-table th,
+.menu-table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+.success{
+    background:#dcfce7;
+    color:#15803d;
+    padding:8px 14px;
+    border-radius:20px;
+}
+
+.pending{
+    background:#fef3c7;
+    color:#d97706;
+    padding:8px 14px;
+    border-radius:20px;
+}
+
+.danger{
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 14px;
+    border-radius:20px;
+}
+
+.complete-btn{
+    border:none;
+    background:#dcfce7;
+    color:#15803d;
+    padding:8px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-right:5px;
+}
+
+.cancel-btn{
+    border:none;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 14px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.no-action{
+    color:#94a3b8;
+    font-style:italic;
+}

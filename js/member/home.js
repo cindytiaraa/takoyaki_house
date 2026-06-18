@@ -1,27 +1,62 @@
-/* ═══════════════════════════════════════════
-   TAKOYAKI HOUSE — js/member/home.js
-   Handles member area state and actions
-════════════════════════════════════════════ */
-
+/* home.js — Member Beranda */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Require user to be logged in as a member (or admin)
-    if (!Auth.requireAuth(['member', 'admin'], '../auth/login.html')) {
+    injectMemberLayout();
+    if (!initMemberLayout('Beranda')) return;
+
+    const user = Auth.getCurrentUser();
+    if (!user) return;
+
+    // Hero name
+    const heroName = document.getElementById('heroName');
+    if (heroName) heroName.textContent = user.name ? user.name.split(' ')[0] : 'Member';
+
+    // Stats
+    setText('statMembership', user.membership || 'Bronze');
+    setText('statPoints', user.points ?? 0);
+
+    const orders = window.dummyOrders || [];
+    const myOrders = getMyOrders(orders, user);
+    setText('statOrders', myOrders.length);
+    setText('statDone', myOrders.filter(o => o.status === 'Completed').length);
+
+    // Recent orders
+    renderRecentOrders(myOrders.slice().reverse().slice(0, 4));
+});
+
+function getMyOrders(orders, user) {
+    return orders.filter(o =>
+        (user.name && o.customerName === user.name) ||
+        (user.phone && o.customerPhone === user.phone)
+    );
+}
+
+function renderRecentOrders(orders) {
+    const container = document.getElementById('homeRecentOrders');
+    if (!container) return;
+
+    if (orders.length === 0) {
+        container.innerHTML = `<div class="m-empty"><div class="m-empty-icon">📋</div><p>Belum ada order. <a href="order.html">Pesan sekarang →</a></p></div>`;
         return;
     }
 
-    const user = Auth.getCurrentUser();
-    
-    // 2. Set user's name
-    const memberNameEl = document.getElementById('memberName');
-    if (memberNameEl && user) {
-        memberNameEl.textContent = user.name;
-    }
+    container.innerHTML = orders.map(o => {
+        const statusCls = o.status === 'Completed' ? 'status-completed' : o.status === 'Cancelled' ? 'status-cancelled' : 'status-pending';
+        const items = o.items.map(i => i.name).join(', ');
+        return `
+        <div class="home-order-item">
+            <div class="hoi-left">
+                <strong>#${o.id} — ${items}</strong>
+                <span>${o.date}</span>
+            </div>
+            <div class="hoi-right">
+                <span class="hoi-price">Rp ${o.totalPrice.toLocaleString('id-ID')}</span>
+                <span class="status-badge ${statusCls}">${o.status}</span>
+            </div>
+        </div>`;
+    }).join('');
+}
 
-    // 3. Handle logout
-    const logoutBtn = document.getElementById('logoutButton');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            Auth.logout('../auth/login.html');
-        });
-    }
-});
+function setText(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+}

@@ -206,7 +206,7 @@ a { text-decoration: none; color: inherit; }
 
 .video-frame {
     position: relative;
-    width: 100%;
+    width: 600px;
     aspect-ratio: 16/9;
     background: #111;
 }

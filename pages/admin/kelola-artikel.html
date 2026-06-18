@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Artikel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/admin/dashboard.css">
+    <link rel="stylesheet" href="../../style/admin/kelola-artikel.css">
+
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/admin/kelola-artikel.js"></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+            <div class="sidebar-logo">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
+                <div>
+                    <h2>Takoyaki</h2>
+                    <p>Admin Panel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="kelola-produk.html">
+                🍡 Kelola Produk
+            </a>
+
+            <a href="kelola-transaksi.html">
+                🧾 Kelola Transaksi
+            </a>
+
+            <a href="kelola-user.html">
+                👥 Kelola Pengguna
+            </a>
+
+            <a href="kelola-artikel.html">
+                📰 Kelola Artikel
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="dashboard-main">
+
+        <div class="management-header">
+            <div>
+                <p class="topbar-tag">Publishing Control</p>
+                <h2>Kelola Artikel</h2>
+            </div>
+
+            <div class="management-actions">
+                <div class="filter-field">
+                    <label>Category</label>
+
+                    <select id="articleCategoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="Tips & Trik">
+                            Tips & Trik
+                        </option>
+
+                        <option value="Kesehatan">
+                            Kesehatan
+                        </option>
+
+                        <option value="Promo">
+                            Promo
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button
+                    class="btn-gradient"
+                    id="addArticleBtn">
+
+                    + Add Article
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card menu-table-card">
+
+            <div class="card-header">
+
+                <h3>Articles List</h3>
+
+                <button id="refreshArticlesBtn">
+                    Refresh
+                </button>
+
+            </div>
+
+            <div class="menu-table-wrap">
+
+                <table class="menu-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Article</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="articlesTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- MODAL ARTICLE -->
+
+    <div class="modal-overlay" id="articleModal">
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                id="closeArticleModal">
+
+                ✕
+
+            </button>
+
+            <h3
+                class="modal-title"
+                id="articleModalTitle">
+
+                Add Article
+
+            </h3>
+
+            <form
+                id="articleForm"
+                class="modal-form">
+
+                <input
+                    type="hidden"
+                    id="articleId">
+
+                <input
+                    type="text"
+                    id="articleTitle"
+                    placeholder="Article Title"
+                    required>
+
+                <select
+                    id="articleCategory"
+                    required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="Tips & Trik">
+                        Tips & Trik
+                    </option>
+
+                    <option value="Kesehatan">
+                        Kesehatan
+                    </option>
+
+                    <option value="Promo">
+                        Promo
+                    </option>
+
+                </select>
+
+                <input
+                    type="url"
+                    id="articleImg"
+                    placeholder="Image URL">
+
+                <textarea
+                    id="articleContent"
+                    rows="5"
+                    placeholder="Article Content">
+                </textarea>
+
+                <select id="articleStatus">
+
+                    <option value="Published">
+                        Published
+                    </option>
+
+                    <option value="Draft">
+                        Draft
+                    </option>
+
+                </select>
+
+                <button
+                    type="submit"
+                    class="modal-submit">
+
+                    Save Article
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

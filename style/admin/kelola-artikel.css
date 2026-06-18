@@ -1,0 +1,96 @@
+.management-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+.management-actions{
+    display:flex;
+    gap:16px;
+}
+
+.filter-field{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.filter-field select{
+    min-width:180px;
+    padding:14px;
+    border-radius:14px;
+    border:1px solid #ddd;
+}
+
+.menu-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.menu-table th,
+.menu-table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+.edit-btn{
+    border:none;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    background:#f8d7b5;
+}
+
+.delete-btn{
+    border:none;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ef4444;
+    color:white;
+}
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-overlay.open{
+    display:flex;
+}
+
+.modal-box{
+    width:550px;
+    max-width:95%;
+    background:white;
+    border-radius:24px;
+    padding:30px;
+}
+
+.modal-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea{
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #ddd;
+}
+
+.modal-submit{
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    background:#ff7a00;
+    color:white;
+    cursor:pointer;
+}

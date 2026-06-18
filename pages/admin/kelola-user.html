@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Pengguna</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/admin/dashboard.css">
+    <link rel="stylesheet" href="../../style/admin/user.css">
+
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/admin/kelola-user.js"></script>
+
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+            <div class="sidebar-logo">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg">
+                <div>
+                    <h2>Takoyaki</h2>
+                    <p>Admin Panel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <a href="dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="kelola-produk.html">
+                🍡 Kelola Produk
+            </a>
+
+            <a href="kelola-transaksi.html">
+                🧾 Kelola Transaksi
+            </a>
+
+            <a href="kelola-user.html">
+                👥 Kelola Pengguna
+            </a>
+
+            <a href="kelola-artikel.html">
+                📰 Kelola Artikel
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="dashboard-main">
+
+        <div class="management-header">
+            <div>
+                <p class="topbar-tag">Member Database</p>
+                <h2>Kelola Pengguna</h2>
+            </div>
+
+            <div class="management-actions">
+                <div class="filter-field">
+                    <label>Status</label>
+
+                    <select id="memberStatusFilter">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <button
+                    class="btn-gradient"
+                    id="refreshMembersBtn">
+                    Refresh
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card menu-table-card">
+
+            <div class="card-header">
+                <h3>Members Registry</h3>
+            </div>
+
+            <div class="menu-table-wrap">
+
+                <table class="menu-table">
+
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th>Contact</th>
+                            <th>Membership</th>
+                            <th>Points</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="membersTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- MODAL EDIT MEMBER -->
+
+    <div class="modal-overlay" id="memberEditModal">
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                id="closeMemberModalBtn">
+                ✕
+            </button>
+
+            <h3 class="modal-title">
+                Edit Member
+            </h3>
+
+            <form
+                id="memberForm"
+                class="modal-form">
+
+                <input type="hidden" id="memberId">
+
+                <input
+                    type="text"
+                    id="memberNameInput"
+                    placeholder="Full Name"
+                    required>
+
+                <input
+                    type="email"
+                    id="memberEmailInput"
+                    placeholder="Email"
+                    required>
+
+                <input
+                    type="text"
+                    id="memberPhoneInput"
+                    placeholder="Phone"
+                    required>
+
+                <select id="memberMembershipInput">
+                    <option value="Bronze">Bronze</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="memberPointsInput">
+
+                <select id="memberStatusInput">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+
+                <button
+                    type="submit"
+                    class="modal-submit">
+
+                    Save Changes
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

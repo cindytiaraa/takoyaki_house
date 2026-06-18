@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Favorit — Takoyaki House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/member/member-layout.css">
+    <link rel="stylesheet" href="../../style/member/home.css">
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/member/member-components.js"></script>
+    <script src="../../js/member/member-layout.js"></script>
+    <script src="../../js/member/favorit.js" defer></script>
+</head>
+<body>
+<div class="member-page-body">
+
+    <section class="member-page-hero">
+        <div class="deco-circle"></div>
+        <div class="member-page-hero-inner">
+            <span class="hero-tag">Member Area</span>
+            <h1>Menu <em>Favorit</em></h1>
+            <p>Produk-produk pilihan yang mungkin kamu suka.</p>
+        </div>
+    </section>
+
+    <div class="member-content">
+        <div class="m-card">
+            <div class="m-card-header">
+                <h3>Semua Menu</h3>
+                <a href="../menu.html" class="m-card-action">Lihat Semua Menu →</a>
+            </div>
+            <div class="fav-filter-chips filter-chips" style="margin-bottom:20px;">
+                <button class="filter-chip active" data-cat="Semua">Semua</button>
+                <button class="filter-chip" data-cat="Takoyaki">Takoyaki</button>
+                <button class="filter-chip" data-cat="Side Menu">Side Menu</button>
+                <button class="filter-chip" data-cat="Drinks">Drinks</button>
+            </div>
+            <div id="favGrid" class="fav-menu-grid"></div>
+        </div>
+    </div>
+
+    <footer class="member-footer">
+        <p>© 2026 Takoyaki House · Member Area</p>
+    </footer>
+</div>
+</body>
+</html>

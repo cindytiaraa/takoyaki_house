@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takoyaki House</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/home.css">
+    <script src="../js/data/account.js" defer></script>
+    <script src="../js/data/menuData.js" defer></script>
+    <script src="../js/data/orderData.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <div class="nav-inner">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+            </div>
+            <span class="logo-text">Takoyaki House</span>
+        </div>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="promo.html">Promo</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="menu.html">Menu</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="btn-member" id="openMemberModal">Join Member</button>
+            <a href="order.html" class="btn-nav">Order Now</a>
+        </div>
+
+        <!-- Keranjang Cart Icon -->
+        <div class="cart-icon" style="position: relative; color: #fff;">
+            <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" width="30">
+                <span class="cart-count" id="cartCount">2</span>
+            </a>
+        </div>
+
+        <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="promo.html">Promo</a>
+        <a href="artikel.html">Artikel</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+        <button class="btn-member" onclick="openMember()">Join Member</button>
+        <a href="order.html" class="btn-nav">Order Now</a>
+    </div>
+</header>
+
+<!--  JOIN MEMBER -->
+<div class="modal-overlay" id="memberModal">
+    <div class="modal-box">
+        <button class="modal-close" id="closeMemberModal">✕</button>
+        <div class="modal-icon">
+            <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+        </div>
+        <h3 class="modal-title">Takoyaki House Member</h3>
+        <p class="modal-sub">Dapatkan promo eksklusif, diskon ulang tahun, dan akses early order khusus member!</p>
+        <div class="modal-benefits">
+            <div class="benefit-item">🎁 Diskon 10% setiap hari</div>
+            <div class="benefit-item">🎂 Free takoyaki di hari ulang tahun</div>
+            <div class="benefit-item">⚡ Early access promo flash sale</div>
+            <div class="benefit-item">📦 Priority order tanpa antri</div>
+        </div>
+        <div class="modal-form">
+            <input type="text" placeholder="Full Name" id="memberName">
+            <input type="email" placeholder="Email Address" id="memberEmail">
+            <input type="password" placeholder="Password" id="memberPassword">
+            <button class="btn-primary modal-submit" onclick="handleMember()">Create Account</button>
+        </div>
+        <p class="modal-login">Already a member? <a href="auth/login.html">Sign in</a></p>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════
+   HERO SLIDER BANNER
+══════════════════════════════════════ -->
+<section class="hero-slider-section" id="home">
+    <div class="hs-track" id="hsTrack">
+
+        <!-- Slide 1 -->
+        <div class="hs-slide hs-slide-1">
+            <div class="deco deco-solid" style="width:180px;height:180px;top:-40px;right:10%;opacity:0.12;"></div>
+            <div class="deco deco-outline" style="width:100px;height:100px;bottom:20px;left:5%;opacity:0.20;"></div>
+            <div class="hs-content">
+                <p class="hs-tag">🔥 Fresh Every Day</p>
+                <h1 class="hs-title">Takoyaki<br><em>Enak & Murah</em><br>di Surabaya</h1>
+                <p class="hs-sub">Authentic Japanese street food dengan cita rasa modern. Dibuat fresh setiap hari dari bahan pilihan berkualitas tinggi.</p>
+                <div class="hs-cta">
+                    <a href="menu.html" class="btn-primary">Lihat Menu</a>
+                    <a href="order.html" class="btn-secondary">Order Sekarang →</a>
+                </div>
+            </div>
+            <div class="hs-visual">
+                <div class="video-mockup">
+                    <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube.com/embed/P5g9bUVrCHg?autoplay=0&rel=0&modestbranding=1"
+                            title="Takoyaki Making Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hs-slide hs-slide-2">
+            <div class="deco deco-navy" style="width:200px;height:200px;top:-50px;left:5%;opacity:0.10;"></div>
+            <div class="deco deco-outline" style="width:80px;height:80px;bottom:30px;right:8%;opacity:0.22;"></div>
+            <div class="hs-content">
+                <p class="hs-tag">🧀 Best Seller</p>
+                <h1 class="hs-title">Cheese<br><em>Meleleh</em><br>di Mulut</h1>
+                <p class="hs-sub">Lelehan mozzarella premium di atas takoyaki original. Kombinasi sempurna yang bikin nagih setiap hari.</p>
+                <div class="hs-cta">
+                    <a href="menu.html" class="btn-primary">Coba Sekarang</a>
+                    <a href="order.html" class="btn-secondary">Order →</a>
+                </div>
+            </div>
+            <div class="hs-visual">
+                <div class="hs-img-card">
+                    <img src="https://i.pinimg.com/736x/fe/58/0c/fe580c83a433505a674e19b1a835ab2b.jpg" alt="Takoyaki Cheese" onerror="this.src='https://placehold.co/480x300/1E2A5A/ffffff?text=Takoyaki+Cheese'">
+                    <div class="hs-img-badge">⭐ Favorit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hs-slide hs-slide-3">
+            <div class="deco deco-solid" style="width:140px;height:140px;bottom:-20px;right:12%;opacity:0.14;"></div>
+            <div class="deco deco-navy" style="width:90px;height:90px;top:20px;left:8%;opacity:0.10;"></div>
+            <div class="hs-content">
+                <p class="hs-tag">🎁 Promo Member</p>
+                <h1 class="hs-title">Diskon<br><em>10% Tiap</em><br>Hari!</h1>
+                <p class="hs-sub">Daftar member sekarang dan nikmati diskon eksklusif setiap hari, free takoyaki di ulang tahun, dan priority order.</p>
+                <div class="hs-cta">
+                    <button class="btn-primary" onclick="openMember()">Daftar Member</button>
+                    <a href="promo.html" class="btn-secondary">Lihat Promo →</a>
+                </div>
+            </div>
+            <div class="hs-visual">
+                <div class="hs-promo-card">
+                    <div class="hs-promo-badge">MEMBER</div>
+                    <div class="hs-promo-num">10%</div>
+                    <div class="hs-promo-label">Diskon Harian</div>
+                    <div class="hs-promo-perks">
+                        <span>🎂 Free di Ultah</span>
+                        <span>⚡ Early Access</span>
+                        <span>📦 Priority Order</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="hs-dots" id="hsDots">
+        <button class="hs-dot active" onclick="goSlide(0)" aria-label="Slide 1"></button>
+        <button class="hs-dot" onclick="goSlide(1)" aria-label="Slide 2"></button>
+        <button class="hs-dot" onclick="goSlide(2)" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Arrows -->
+    <button class="hs-arrow hs-prev" onclick="changeSlide(-1)" aria-label="Previous">&#8249;</button>
+    <button class="hs-arrow hs-next" onclick="changeSlide(1)" aria-label="Next">&#8250;</button>
+
+    <!-- Quote strip -->
+    <div class="hero-quote">
+        <p>"Takoyaki terenak yang pernah aku coba! Crispy di luar, lembut di dalam."</p>
+        <span>— Budi Santoso, Pelanggan Setia</span>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+   QUICK ACTIONS (like ayomakan categories)
+══════════════════════════════════════ -->
+<section class="quick-actions">
+    <div class="qa-inner">
+        <a href="promo.html" class="qa-item">
+            <div class="qa-icon qa-icon-promo">
+                <span>🏷️</span>
+            </div>
+            <span class="qa-label">Promo Spesial</span>
+        </a>
+        <a href="menu.html" class="qa-item">
+            <div class="qa-icon qa-icon-bestseller">
+                <span>🔥</span>
+            </div>
+            <span class="qa-label">Terlaris</span>
+        </a>
+        <a href="menu.html#cheese" class="qa-item">
+            <div class="qa-icon qa-icon-cheese">
+                <span>🧀</span>
+            </div>
+            <span class="qa-label">Cheese Series</span>
+        </a>
+        <a href="menu.html#spicy" class="qa-item">
+            <div class="qa-icon qa-icon-spicy">
+                <span>🌶️</span>
+            </div>
+            <span class="qa-label">Spicy Level</span>
+        </a>
+        <a href="order.html" class="qa-item">
+            <div class="qa-icon qa-icon-order">
+                <span>🛵</span>
+            </div>
+            <span class="qa-label">Order Cepat</span>
+        </a>
+        <a href="menu.html#drinks" class="qa-item">
+            <div class="qa-icon qa-icon-drink">
+                <span>🍵</span>
+            </div>
+            <span class="qa-label">Minuman</span>
+        </a>
+        <a href="menu.html#bundle" class="qa-item">
+            <div class="qa-icon qa-icon-bundle">
+                <span>📦</span>
+            </div>
+            <span class="qa-label">Paket Hemat</span>
+        </a>
+        <button class="qa-item" onclick="openMember()">
+            <div class="qa-icon qa-icon-member">
+                <span>⭐</span>
+            </div>
+            <span class="qa-label">Jadi Member</span>
+        </button>
+    </div>
+</section>
+
+<!-- ══ SLIDER + QUICK ACTIONS STYLES (scoped, tidak ubah DNA global) ══ -->
+<style>
+/* ── HERO SLIDER ── */
+.hero-slider-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+    padding-top: 64px; /* navbar height */
+}
+
+.hs-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+}
+
+.hs-slide {
+    min-width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 64px 80px 80px;
+    background: linear-gradient(135deg, var(--cream) 60%, var(--orange-light) 100%);
+}
+
+.hs-slide-2 { background: linear-gradient(135deg, #e8edf8 60%, var(--cream) 100%); }
+.hs-slide-3 { background: linear-gradient(135deg, var(--cream) 60%, #fff3e8 100%); }
+
+.hs-tag {
+    display: inline-block;
+    background: var(--orange-light);
+    color: var(--orange-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+}
+
+.hs-slide-2 .hs-tag { background: #dde4f4; color: var(--navy); }
+.hs-slide-3 .hs-tag { background: var(--orange-light); color: var(--orange-dark); }
+
+.hs-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+.hs-title em { color: var(--orange); font-style: italic; }
+.hs-slide-2 .hs-title em { color: var(--navy); }
+
+.hs-sub {
+    font-size: 0.93rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 440px;
+}
+
+.hs-cta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* Visual right side */
+.hs-visual { display: flex; justify-content: center; align-items: center; }
+
+.hs-img-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--navy);
+    border: 2px solid var(--navy);
+    max-width: 420px;
+    width: 100%;
+    transition: var(--transition);
+}
+.hs-img-card:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 var(--navy); }
+.hs-img-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.hs-img-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--orange);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+/* Promo card slide 3 */
+.hs-promo-card {
+    background: var(--navy);
+    color: white;
+    border-radius: 20px;
+    padding: 40px 36px;
+    text-align: center;
+    max-width: 320px;
+    width: 100%;
+    box-shadow: 8px 8px 0 var(--orange);
+    border: 2px solid var(--orange);
+}
+.hs-promo-badge {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+}
+.hs-promo-num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.hs-promo-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.80);
+    margin-bottom: 24px;
+}
+.hs-promo-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.hs-promo-perks span {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+/* Dots */
+.hs-dots {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+.hs-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(30,42,90,0.25);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+.hs-dot.active { background: var(--orange); width: 28px; border-radius: 5px; }
+
+/* Arrows */
+.hs-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 2px solid var(--gray-light);
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--navy);
+    z-index: 10;
+    transition: var(--transition);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow);
+}
+.hs-arrow:hover { background: var(--orange); border-color: var(--orange); color: white; }
+.hs-prev { left: 20px; }
+.hs-next { right: 20px; }
+
+/* Quote strip */
+.hero-quote {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 18px 40px;
+    font-size: 0.88rem;
+    position: relative;
+    z-index: 2;
+}
+.hero-quote p { font-style: italic; opacity: 0.90; margin-bottom: 4px; }
+.hero-quote span { font-size: 0.78rem; opacity: 0.55; font-weight: 600; letter-spacing: 0.04em; }
+
+/* ── QUICK ACTIONS ── */
+.quick-actions {
+    background: var(--white);
+    padding: 28px 40px;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.qa-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.qa-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    text-decoration: none;
+    color: var(--black);
+    transition: var(--transition);
+    min-width: 80px;
+}
+.qa-item:hover { background: var(--cream); transform: translateY(-3px); }
+.qa-item:hover .qa-icon { transform: scale(1.08); }
+
+.qa-icon {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.qa-icon-promo    { background: linear-gradient(135deg, #FF7A00, #ff9d40); }
+.qa-icon-bestseller{ background: linear-gradient(135deg, #e05a00, #FF7A00); }
+.qa-icon-cheese   { background: linear-gradient(135deg, #f5a623, #ffc85c); }
+.qa-icon-spicy    { background: linear-gradient(135deg, #e74c3c, #ff6b6b); }
+.qa-icon-order    { background: linear-gradient(135deg, var(--navy), #2d3f7a); }
+.qa-icon-drink    { background: linear-gradient(135deg, #27ae60, #52c78c); }
+.qa-icon-bundle   { background: linear-gradient(135deg, #8e44ad, #b57bee); }
+.qa-icon-member   { background: linear-gradient(135deg, #f39c12, #f5c842); }
+
+.qa-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--black);
+    line-height: 1.3;
+}
+
+/* ── Slider Responsive ── */
+@media (max-width: 768px) {
+    .hs-slide {
+        grid-template-columns: 1fr;
+        padding: 56px 24px 70px;
+        gap: 24px;
+    }
+    .hs-visual { order: -1; }
+    .hs-img-card { max-width: 280px; }
+    .hs-promo-card { max-width: 260px; padding: 28px 24px; }
+    .hs-promo-num { font-size: 3.5rem; }
+    .hs-dots { bottom: 72px; }
+    .hs-arrow { display: none; }
+
+    .quick-actions { padding: 20px 16px; }
+    .qa-inner { gap: 4px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; scroll-snap-type: x mandatory; }
+    .qa-inner::-webkit-scrollbar { display: none; }
+    .qa-item { scroll-snap-align: start; min-width: 70px; }
+    .qa-icon { width: 54px; height: 54px; font-size: 1.4rem; border-radius: 14px; }
+}
+</style>
+
+<!-- ══ SLIDER SCRIPT ══ -->
+<script>
+(function() {
+    let current = 0;
+    const total = 3;
+    let autoTimer;
+
+    function goSlide(idx) {
+        current = (idx + total) % total;
+        document.getElementById('hsTrack').style.transform = `translateX(-${current * 100}%)`;
+        document.querySelectorAll('.hs-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    window.goSlide = goSlide;
+    window.changeSlide = function(dir) { clearInterval(autoTimer); goSlide(current + dir); startAuto(); };
+
+    function startAuto() { autoTimer = setInterval(() => goSlide(current + 1), 5000); }
+    startAuto();
+})();
+</script>
+
+<!-- HERO SECTION (original, kept intact) -->
+<section class="hero" id="home-original" style="display:none;">
+    <!-- Decorative circles (takoyaki balls) -->
+    <div class="deco deco-solid deco-1"></div>
+    <div class="deco deco-outline deco-2"></div>
+    <div class="deco deco-navy deco-3"></div>
+    <div class="deco deco-outline deco-4"></div>
+    <div class="deco deco-solid deco-5"></div>
+    <div class="deco-dots deco-dots-tl"></div>
+    <div class="deco-dots deco-dots-br"></div>
+
+    <div class="hero-inner">
+        <div class="hero-text">
+            <p class="hero-tag">🔥 Fresh Every Day</p>
+            <h1 class="hero-title">Takoyaki<br><em>Enak & Murah</em><br>di Surabaya</h1>
+            <p class="hero-sub">Authentic Japanese street food dengan cita rasa modern. Dibuat fresh setiap hari dari bahan pilihan berkualitas tinggi.</p>
+            <div class="hero-cta">
+                <a href="menu.html" class="btn-primary">Lihat Menu</a>
+                <a href="order.html" class="btn-secondary">Order Sekarang →</a>
+            </div>
+        </div>
+
+        <!-- VIDEO  -->
+        <div class="hero-image-wrap">
+            <div class="video-mockup">
+                <div class="browser-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+                <div class="video-frame">
+                    <iframe
+                        src="https://www.youtube.com/embed/P5g9bUVrCHg?autoplay=0&rel=0&modestbranding=1"
+                        title="Takoyaki Making Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-quote">
+        <p>"Takoyaki terenak yang pernah aku coba! Crispy di luar, lembut di dalam."</p>
+        <span>— Budi Santoso, Pelanggan Setia</span>
+    </div>
+</section>
+
+<!-- DARK BANNER -->
+<section class="dark-banner" id="about">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+
+    <div class="dark-banner-inner">
+        <div class="db-text">
+            <h2>Kenapa Pilih<br>Takoyaki House?</h2>
+            <p>Kami menggunakan bahan segar berkualitas tinggi, dimasak langsung saat kamu pesan. Tidak ada pengawet, tidak ada kompromi soal rasa.</p>
+            <p class="db-quote">"Rasanya kayak langsung dari Tokyo — nggak bohong!"</p>
+            <div class="db-author">
+                <div class="db-avatar">A</div>
+                <span>Ayu Pratiwi, Food Blogger Surabaya</span>
+            </div>
+        </div>
+        <div class="db-images">
+            <div class="db-img-card db-img-front">
+               <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" alt="Takoyaki">
+            </div>
+            <div class="db-img-card db-img-back"></div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURE SECTION -->
+<section class="feature-section">
+    <div class="feature-img-block">
+        <img src="https://i.pinimg.com/736x/fe/58/0c/fe580c83a433505a674e19b1a835ab2b.jpg" alt="Feature">
+    </div>
+    <div class="feature-text-block">
+        <h3>Fresh, Crispy & Authentic</h3>
+        <p>Setiap bola takoyaki kami dibuat dengan adonan premium, gurita asli, dan saus khas yang diracik sendiri. Dipanggang sempurna di atas wajan besi panas.</p>
+        <a href="menu.html" class="btn-outline">Lihat Semua Menu</a>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+    <div class="section-header">
+        <h2>Apa Kata Mereka?</h2>
+        <p>Ribuan pelanggan sudah puas — giliran kamu!</p>
+    </div>
+    <div class="testi-grid" id="testiGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+    <div class="deco deco-4"></div>
+    <div class="deco deco-5"></div>
+
+    <div class="footer-inner">
+
+        <div class="footer-divider"></div>
+        <div class="footer-brand">TAKOYAKI HOUSE</div>
+        <div class="footer-socials">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">TK</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">YT</a>
+            <a href="mailto:takoyaki@gmail.com" aria-label="Email">@</a>
+            <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+        <div class="footer-info">
+            <p>📞 0812-3456-7890 &nbsp;|&nbsp; 📍 Surabaya, Jawa Timur &nbsp;|&nbsp; 🕒 10:00 – 22:00</p>
+            <p>© 2026 Takoyaki House. Privacy – Terms</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
