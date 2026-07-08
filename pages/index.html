@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/home.css">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 
     <script src="../js/data/account.js" defer></script>
     <script src="../js/data/menuData.js" defer></script>
@@ -45,7 +46,7 @@
         <!-- Keranjang Cart Icon -->
         <div class="cart-icon" style="position: relative; color: #fff;">
             <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" width="30">
+                <span class="mh-ql-icon"><iconify-icon icon="lucide:shopping-cart"></iconify-icon></span>
                 <span class="cart-count" id="cartCount">2</span>
             </a>
         </div>
@@ -75,10 +76,10 @@
         <h3 class="modal-title">Takoyaki House Member</h3>
         <p class="modal-sub">Dapatkan promo eksklusif, diskon ulang tahun, dan akses early order khusus member!</p>
         <div class="modal-benefits">
-            <div class="benefit-item">🎁 Diskon 10% setiap hari</div>
-            <div class="benefit-item">🎂 Free takoyaki di hari ulang tahun</div>
-            <div class="benefit-item">⚡ Early access promo flash sale</div>
-            <div class="benefit-item">📦 Priority order tanpa antri</div>
+            <div class="benefit-item"><iconify-icon icon="lucide:gift" style="vertical-align:middle;color:var(--orange);margin-right:4px;"></iconify-icon> Diskon 10% setiap hari</div>
+            <div class="benefit-item"><iconify-icon icon="lucide:cake" style="vertical-align:middle;color:var(--orange);margin-right:4px;"></iconify-icon> Free takoyaki di hari ulang tahun</div>
+            <div class="benefit-item"><iconify-icon icon="lucide:zap" style="vertical-align:middle;color:var(--orange);margin-right:4px;"></iconify-icon> Early access promo flash sale</div>
+            <div class="benefit-item"><iconify-icon icon="lucide:package" style="vertical-align:middle;color:var(--orange);margin-right:4px;"></iconify-icon> Priority order tanpa antri</div>
         </div>
         <div class="modal-form">
             <input type="text" placeholder="Full Name" id="memberName">
@@ -200,49 +201,49 @@
     <div class="qa-inner">
         <a href="promo.html" class="qa-item">
             <div class="qa-icon qa-icon-promo">
-                <span>🏷️</span>
+                <span><iconify-icon icon="lucide:tag"></iconify-icon></span>
             </div>
             <span class="qa-label">Promo Spesial</span>
         </a>
         <a href="menu.html" class="qa-item">
             <div class="qa-icon qa-icon-bestseller">
-                <span>🔥</span>
+                <span><iconify-icon icon="lucide:flame"></iconify-icon></span>
             </div>
             <span class="qa-label">Terlaris</span>
         </a>
         <a href="menu.html#cheese" class="qa-item">
             <div class="qa-icon qa-icon-cheese">
-                <span>🧀</span>
+                <span><iconify-icon icon="lucide:circle"></iconify-icon></span>
             </div>
             <span class="qa-label">Cheese Series</span>
         </a>
         <a href="menu.html#spicy" class="qa-item">
             <div class="qa-icon qa-icon-spicy">
-                <span>🌶️</span>
+                <span><iconify-icon icon="lucide:flame"></iconify-icon></span>
             </div>
             <span class="qa-label">Spicy Level</span>
         </a>
         <a href="order.html" class="qa-item">
             <div class="qa-icon qa-icon-order">
-                <span>🛵</span>
+                <span><iconify-icon icon="lucide:bike"></iconify-icon></span>
             </div>
             <span class="qa-label">Order Cepat</span>
         </a>
         <a href="menu.html#drinks" class="qa-item">
             <div class="qa-icon qa-icon-drink">
-                <span>🍵</span>
+                <span><iconify-icon icon="lucide:cup-soda"></iconify-icon></span>
             </div>
             <span class="qa-label">Minuman</span>
         </a>
         <a href="menu.html#bundle" class="qa-item">
             <div class="qa-icon qa-icon-bundle">
-                <span>📦</span>
+                <span><iconify-icon icon="lucide:package"></iconify-icon></span>
             </div>
             <span class="qa-label">Paket Hemat</span>
         </a>
         <button class="qa-item" onclick="openMember()">
             <div class="qa-icon qa-icon-member">
-                <span>⭐</span>
+                <span><iconify-icon icon="lucide:star"></iconify-icon></span>
             </div>
             <span class="qa-label">Jadi Member</span>
         </button>
@@ -278,7 +279,7 @@
             <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">WA</a>
         </div>
         <div class="footer-info">
-            <p>📞 0812-3456-7890 &nbsp;|&nbsp; 📍 Surabaya, Jawa Timur &nbsp;|&nbsp; 🕒 10:00 – 22:00</p>
+            <p><iconify-icon icon="lucide:phone" style="vertical-align:middle;"></iconify-icon> 0812-3456-7890 &nbsp;|&nbsp; <iconify-icon icon="lucide:map-pin" style="vertical-align:middle;"></iconify-icon> Surabaya, Jawa Timur &nbsp;|&nbsp; <iconify-icon icon="lucide:clock" style="vertical-align:middle;"></iconify-icon> 10:00 – 22:00</p>
             <p>© 2026 Takoyaki House. Privacy – Terms</p>
         </div>
     </div>

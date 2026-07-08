@@ -21,15 +21,6 @@
 <body>
 <div class="member-page-body">
 
-    <section class="member-page-hero">
-        <div class="deco-circle"></div>
-        <div class="member-page-hero-inner">
-            <span class="hero-tag">Member Area</span>
-            <h1>Order <em>Langsung</em></h1>
-            <p>Pilih menu dan submit pesananmu dengan cepat.</p>
-        </div>
-    </section>
-
     <div class="member-content">
 
         <!-- Info member -->
@@ -59,7 +50,7 @@
                 <h3>Pilih Menu</h3>
                 <span class="m-card-action" id="selectedCount">0 item dipilih</span>
             </div>
-            <p class="order-hint" id="orderHint" style="display:none;">⚠️ Pilih minimal 1 menu.</p>
+            <p class="order-hint" id="orderHint" style="display:none;"><iconify-icon icon="lucide:alert-triangle" style="vertical-align: middle;"></iconify-icon> Pilih minimal 1 menu.</p>
             <div id="orderMenuGrid" class="order-menu-grid"></div>
         </div>
 
@@ -76,7 +67,7 @@
 
         <div class="order-actions">
             <button class="btn-outline-orange" id="btnPreviewOrder">Preview Pesanan</button>
-            <button class="btn-primary" id="btnSubmitOrder" style="display:none;">✅ Submit Pesanan</button>
+            <button class="btn-primary" id="btnSubmitOrder" style="display:none;"><iconify-icon icon="lucide:check-circle" style="vertical-align: middle;"></iconify-icon> Submit Pesanan</button>
         </div>
 
         <div class="order-result-msg" id="orderResultMsg" style="display:none;"></div>
