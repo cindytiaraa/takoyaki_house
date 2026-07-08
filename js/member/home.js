@@ -35,7 +35,7 @@ function renderRecentOrders(orders) {
     if (!container) return;
 
     if (orders.length === 0) {
-        container.innerHTML = `<div class="m-empty"><div class="m-empty-icon">📋</div><p>Belum ada order. <a href="order.html">Pesan sekarang →</a></p></div>`;
+        container.innerHTML = `<div class="m-empty"><div class="m-empty-icon"><iconify-icon icon="lucide:clipboard-list"></iconify-icon></div><p>Belum ada order. <a href="order.html">Pesan sekarang <iconify-icon icon="lucide:arrow-right" style="vertical-align: middle;"></iconify-icon></a></p></div>`;
         return;
     }
 

@@ -49,7 +49,7 @@ function saveProfil() {
     fillForm(updated);
     fillLayoutUser();
 
-    showMsg(msg, '✅ Profil berhasil disimpan!', false);
+    showMsg(msg, 'Profil berhasil disimpan!', false);
 }
 
 function changePass() {
@@ -58,8 +58,8 @@ function changePass() {
     const confPass = document.getElementById('profilConfPass')?.value.trim();
     const msg     = document.getElementById('passSaveMsg');
 
-    if (!newPass || newPass.length < 6) { showMsg(msg, '⚠️ Password minimal 6 karakter.', true); return; }
-    if (newPass !== confPass) { showMsg(msg, '⚠️ Konfirmasi password tidak cocok.', true); return; }
+    if (!newPass || newPass.length < 6) { showMsg(msg, 'Password minimal 6 karakter.', true); return; }
+    if (newPass !== confPass) { showMsg(msg, 'Konfirmasi password tidak cocok.', true); return; }
 
     const accounts = window.dummyAccounts || [];
     const idx = accounts.findIndex(a => a.id === user.id);
@@ -70,7 +70,7 @@ function changePass() {
 
     document.getElementById('profilNewPass').value = '';
     document.getElementById('profilConfPass').value = '';
-    showMsg(msg, '✅ Password berhasil diubah!', false);
+    showMsg(msg, 'Password berhasil diubah!', false);
 }
 
 function showMsg(el, text, isError) {

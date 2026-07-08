@@ -27,7 +27,7 @@ function renderFavorit(cat) {
         : menu.filter(m => m.status === 'available' && m.category === cat);
 
     if (filtered.length === 0) {
-        grid.innerHTML = `<div class="m-empty" style="grid-column:1/-1"><div class="m-empty-icon">🍡</div><p>Belum ada menu di kategori ini.</p></div>`;
+        grid.innerHTML = `<div class="m-empty" style="grid-column:1/-1"><div class="m-empty-icon"><iconify-icon icon="lucide:utensils-crossed"></iconify-icon></div><p>Belum ada menu di kategori ini.</p></div>`;
         return;
     }
 
@@ -61,7 +61,7 @@ function addToCartFav(e, id) {
         cart.push({ ...product, qty: 1 });
     }
     saveCart(cart);
-    showToast(`✅ ${product.name} ditambahkan ke keranjang!`);
+    showToast(`${product.name} ditambahkan ke keranjang!`);
 }
 
 function showToast(msg) {

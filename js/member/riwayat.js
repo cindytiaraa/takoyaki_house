@@ -39,7 +39,7 @@ function renderRiwayat(orders, status) {
     if (!container) return;
 
     if (filtered.length === 0) {
-        container.innerHTML = `<div class="m-empty"><div class="m-empty-icon">📋</div><p>Tidak ada transaksi ${status !== 'Semua' ? '"' + status + '"' : ''}.</p></div>`;
+        container.innerHTML = `<div class="m-empty"><div class="m-empty-icon"><iconify-icon icon="lucide:clipboard-list"></iconify-icon></div><p>Tidak ada transaksi ${status !== 'Semua' ? '"' + status + '"' : ''}.</p></div>`;
         return;
     }
 
@@ -50,12 +50,12 @@ function renderRiwayat(orders, status) {
         <div class="home-order-item" style="flex-direction:column;align-items:flex-start;gap:10px;">
             <div style="display:flex;justify-content:space-between;width:100%;align-items:center;flex-wrap:wrap;gap:8px;">
                 <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;">#${o.id}</span>
-                <span style="font-size:0.75rem;color:var(--gray);">📅 ${o.date}</span>
+                <span style="font-size:0.75rem;color:var(--gray);"><iconify-icon icon="lucide:calendar" style="vertical-align: middle;"></iconify-icon> ${o.date}</span>
                 <span class="status-badge ${cls}">${o.status}</span>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">${chips}</div>
             <div style="display:flex;justify-content:space-between;width:100%;align-items:center;flex-wrap:wrap;gap:6px;">
-                ${o.note ? `<span style="font-size:0.75rem;color:var(--gray);font-style:italic;">📝 ${o.note}</span>` : '<span></span>'}
+                ${o.note ? `<span style="font-size:0.75rem;color:var(--gray);font-style:italic;"><iconify-icon icon="lucide:file-text" style="vertical-align: middle;"></iconify-icon> ${o.note}</span>` : '<span></span>'}
                 <span class="hoi-price">Rp ${o.totalPrice.toLocaleString('id-ID')}</span>
             </div>
         </div>`;

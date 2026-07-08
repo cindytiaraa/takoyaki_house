@@ -101,7 +101,7 @@ function previewOrder() {
     if (hint) hint.style.display = 'none';
 
     if (!name || !phone) {
-        alert('⚠️ Mohon isi nama dan nomor WhatsApp.');
+        alert('Mohon isi nama dan nomor WhatsApp.');
         return;
     }
 
@@ -184,10 +184,10 @@ function submitOrder() {
 
     if (resultEl) {
         resultEl.className = 'order-result-msg success';
-        resultEl.innerHTML = `✅ <strong>Pesanan berhasil dikirim!</strong><br>
+        resultEl.innerHTML = `<strong>Pesanan berhasil dikirim!</strong><br>
             Halo <strong>${name}</strong>, pesananmu (${items.map(i => i.name + ' ×' + i.qty).join(', ')}) sudah kami terima.<br>
             Kami akan menghubungi <strong>${phone}</strong> segera.<br>
-            ${note ? `📝 Catatan: ${note}` : ''}`;
+            ${note ? `Catatan: ${note}` : ''}`;
         resultEl.style.display = 'block';
         resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }

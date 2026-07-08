@@ -1,10 +1,15 @@
 /* ═══════════════════════════════════════════
-   MEMBER COMPONENTS — member-components.js
-   Inject topbar + drawer ke semua halaman member
-   Panggil injectMemberLayout() sebelum initMemberLayout()
+   MEMBER COMPONENTS 
 ════════════════════════════════════════════ */
 
 function injectMemberLayout() {
+    // Load Iconify script dynamically if not present
+    if (!document.querySelector('script[src*="iconify"]') && !window.customElements?.get('iconify-icon')) {
+        const iconifyScript = document.createElement('script');
+        iconifyScript.src = "https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js";
+        document.head.appendChild(iconifyScript);
+    }
+
     // ── TOPBAR ───────────────────────────────
     const topbarHTML = `
     <div class="member-topbar" id="memberTopbar">
@@ -19,9 +24,8 @@ function injectMemberLayout() {
         </a>
         <span class="topbar-page-title" id="topbarPageTitle"></span>
         <div class="topbar-right">
-            <a href="keranjang.html" class="topbar-cart-btn" id="topbarCartBtn">
-                🛒
-                <span class="topbar-cart-count" id="cartCount">0</span>
+            <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;">
+                <span class="mh-ql-icon"><iconify-icon icon="lucide:shopping-cart"></iconify-icon></span>
             </a>
             <div class="topbar-user-avatar" id="topbarAvatar" onclick="openDrawer()">M</div>
         </div>
@@ -54,38 +58,38 @@ function injectMemberLayout() {
 
         <nav class="drawer-nav">
             <a href="home.html">
-                <span class="nav-icon">🏠</span> Beranda
-            </a>
-            <a href="riwayat.html">
-                <span class="nav-icon">📋</span> Riwayat Transaksi
+                <span class="nav-icon"><iconify-icon icon="lucide:home"></iconify-icon></span> Beranda
             </a>
             <a href="notifikasi.html">
-                <span class="nav-icon">🔔</span> Notifikasi
+                <span class="nav-icon"><iconify-icon icon="lucide:bell"></iconify-icon></span> Notifikasi
             </a>
-            <a href="profil.html">
-                <span class="nav-icon">👤</span> Profil Saya
+            <a href="riwayat.html">
+                <span class="nav-icon"><iconify-icon icon="lucide:clipboard-list"></iconify-icon></span> Riwayat Transaksi
             </a>
             <a href="promo.html">
-                <span class="nav-icon">🎁</span> Tawaran &amp; Promo
+                <span class="nav-icon"><iconify-icon icon="lucide:gift"></iconify-icon></span> Tawaran &amp; Promo
+            </a>
+             <a href="menu.html">
+                <span class="nav-icon"><iconify-icon icon="lucide:utensils-crossed"></iconify-icon></span> Lihat Menu
             </a>
             <a href="favorit.html">
-                <span class="nav-icon">⭐</span> Menu Favorit
+                <span class="nav-icon"><iconify-icon icon="lucide:star"></iconify-icon></span> Menu Favorit
             </a>
             <a href="keranjang.html">
-                <span class="nav-icon">🛒</span> Keranjang
+                <span class="nav-icon"><iconify-icon icon="lucide:shopping-cart"></iconify-icon></span> Keranjang
                 <span class="nav-badge" id="drawerCartBadge" style="display:none;">0</span>
             </a>
             <a href="order.html">
-                <span class="nav-icon">⚡</span> Order Langsung
+                <span class="nav-icon"><iconify-icon icon="lucide:zap"></iconify-icon></span> Order Langsung
             </a>
-            <a href="../menu.html">
-                <span class="nav-icon">🍡</span> Lihat Menu
+            <a href="profil.html">
+                <span class="nav-icon"><iconify-icon icon="lucide:user"></iconify-icon></span> Profil Saya
             </a>
         </nav>
 
         <div class="drawer-bottom">
             <button class="drawer-logout" id="drawerLogout">
-                🚪 Logout
+                <iconify-icon icon="lucide:log-out"></iconify-icon> Logout
             </button>
         </div>
     </aside>`;
