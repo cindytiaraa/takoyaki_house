@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Area — Takoyaki House</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/member/home.css">
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/data/accountData.js"></script>
+    <script src="../../js/data/menuData.js"></script>
+    <script src="../../js/data/orderData.js"></script>
+    <script src="../../js/data/articleData.js"></script>
+    <script src="../../js/member/home.js" defer></script>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="member-sidebar" id="memberSidebar">
+    <div class="msidebar-top">
+        <div class="msidebar-logo">
+            <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" alt="Logo" width="40">
+            <div>
+                <h2>Takoyaki</h2>
+                <p>Member Area</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="msidebar-user" id="sidebarUser">
+        <div class="msidebar-avatar" id="sidebarAvatar">A</div>
+        <div class="msidebar-user-info">
+            <strong id="sidebarName">Member</strong>
+            <span id="sidebarMembership" class="msidebar-tier">Bronze</span>
+        </div>
+    </div>
+
+    <nav class="msidebar-nav">
+        <a href="#" class="msidebar-link active" data-view="overview">
+            <span class="mlink-icon">🏠</span> Overview
+        </a>
+        <a href="#" class="msidebar-link" data-view="profil">
+            <span class="mlink-icon">👤</span> Profil Saya
+        </a>
+        <a href="#" class="msidebar-link" data-view="riwayat">
+            <span class="mlink-icon">📋</span> Riwayat Transaksi
+        </a>
+        <a href="#" class="msidebar-link" data-view="keranjang">
+            <span class="mlink-icon">🛒</span> Keranjang
+            <span class="msidebar-badge" id="sidebarCartBadge" style="display:none;">0</span>
+        </a>
+        <a href="#" class="msidebar-link" data-view="favorit">
+            <span class="mlink-icon">⭐</span> Menu Favorit
+        </a>
+    </nav>
+
+    <div class="msidebar-bottom">
+        <a href="../menu.html" class="msidebar-link">
+            <span class="mlink-icon">🍡</span> Lihat Menu
+        </a>
+        <button class="msidebar-logout" id="memberLogoutBtn">
+            <span class="mlink-icon">🚪</span> Logout
+        </button>
+    </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div class="member-main" id="memberMain">
+
+    <!-- TOP BAR -->
+    <header class="member-topbar">
+        <button class="msidebar-toggle" id="sidebarToggle">☰</button>
+        <h1 class="member-page-title" id="memberPageTitle">Overview</h1>
+        <div class="mtopbar-right">
+            <a href="../menu.html" class="btn-primary" style="font-size:0.82rem;padding:8px 18px;">+ Order Sekarang</a>
+        </div>
+    </header>
+
+    <!-- ── SECTION: OVERVIEW -->
+    <section class="member-section active" data-view="overview" id="secOverview">
+        <div class="member-welcome-banner">
+            <div class="mwelcome-text">
+                <p class="mwelcome-tag">Selamat Datang Kembali 🎉</p>
+                <h2>Halo, <span id="welcomeName">Member</span>!</h2>
+                <p>Nikmati promo eksklusif dan pesan favoritmu hari ini.</p>
+            </div>
+            <div class="mwelcome-emoji">🍡</div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="member-stats-grid" id="memberStatsGrid">
+            <div class="mstat-card">
+                <div class="mstat-icon">🏆</div>
+                <div>
+                    <div class="mstat-value" id="statMembership">Bronze</div>
+                    <div class="mstat-label">Membership</div>
+                </div>
+            </div>
+            <div class="mstat-card">
+                <div class="mstat-icon">⭐</div>
+                <div>
+                    <div class="mstat-value" id="statPoints">0</div>
+                    <div class="mstat-label">Poin Kamu</div>
+                </div>
+            </div>
+            <div class="mstat-card">
+                <div class="mstat-icon">📦</div>
+                <div>
+                    <div class="mstat-value" id="statOrders">0</div>
+                    <div class="mstat-label">Total Order</div>
+                </div>
+            </div>
+            <div class="mstat-card">
+                <div class="mstat-icon">✅</div>
+                <div>
+                    <div class="mstat-value" id="statCompleted">0</div>
+                    <div class="mstat-label">Selesai</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent orders -->
+        <div class="member-card">
+            <div class="mcard-header">
+                <h3>Order Terbaru</h3>
+                <button class="mcard-link" onclick="switchView('riwayat')">Lihat Semua →</button>
+            </div>
+            <div id="overviewRecentOrders">
+                <p class="member-empty-text">Belum ada riwayat order.</p>
+            </div>
+        </div>
+
+        <!-- Promo banner -->
+        <div class="member-promo-banner">
+            <div>
+                <h3>🎁 Promo Member Aktif!</h3>
+                <p>Diskon 10% setiap hari untuk semua menu. Tunjukkan kartu member saat checkout.</p>
+            </div>
+            <a href="../menu.html" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- ── SECTION: PROFIL -->
+    <section class="member-section" data-view="profil" id="secProfil">
+        <div class="member-card">
+            <div class="mcard-header">
+                <h3>Informasi Profil</h3>
+            </div>
+            <div class="profil-wrap">
+                <div class="profil-avatar-col">
+                    <div class="profil-avatar" id="profilAvatar">A</div>
+                    <div class="profil-tier-badge" id="profilTier">Bronze Member</div>
+                    <p class="profil-points-label">Poin: <strong id="profilPoints">0</strong></p>
+                </div>
+                <div class="profil-form-col">
+                    <div class="profil-field">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="profilName" placeholder="Nama kamu">
+                    </div>
+                    <div class="profil-field">
+                        <label>Email</label>
+                        <input type="email" id="profilEmail" placeholder="Email kamu" readonly>
+                    </div>
+                    <div class="profil-field">
+                        <label>No. HP / WhatsApp</label>
+                        <input type="text" id="profilPhone" placeholder="08xxxxxxxx">
+                    </div>
+                    <div class="profil-field">
+                        <label>Menu Favorit</label>
+                        <input type="text" id="profilFavorite" placeholder="Menu kesukaan kamu">
+                    </div>
+                    <div class="profil-actions">
+                        <button class="btn-primary" onclick="saveProfil()">Simpan Perubahan</button>
+                        <span class="profil-save-msg" id="profilSaveMsg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SECTION: RIWAYAT TRANSAKSI -->
+    <section class="member-section" data-view="riwayat" id="secRiwayat">
+        <div class="member-card">
+            <div class="mcard-header">
+                <h3>Riwayat Transaksi</h3>
+                <div class="mcard-filters">
+                    <button class="filter-chip active" data-status="Semua">Semua</button>
+                    <button class="filter-chip" data-status="Completed">Selesai</button>
+                    <button class="filter-chip" data-status="Pending">Pending</button>
+                    <button class="filter-chip" data-status="Cancelled">Dibatal</button>
+                </div>
+            </div>
+            <div id="riwayatList">
+                <p class="member-empty-text">Belum ada riwayat transaksi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SECTION: KERANJANG -->
+    <section class="member-section" data-view="keranjang" id="secKeranjang">
+        <div class="member-card">
+            <div class="mcard-header">
+                <h3>Keranjang Belanja</h3>
+                <a href="../menu.html" class="mcard-link">+ Tambah Produk</a>
+            </div>
+            <div id="memberCartList"></div>
+        </div>
+        <div class="member-cart-summary" id="memberCartSummary" style="display:none;">
+            <div class="mcs-lines" id="mcsLines"></div>
+            <div class="mcs-total">
+                <span>Total</span>
+                <strong id="mcsTotal">Rp 0</strong>
+            </div>
+            <a href="../pembayaran.html" class="btn-primary" style="display:block;text-align:center;margin-top:12px;">
+                Lanjut Pembayaran →
+            </a>
+        </div>
+    </section>
+
+    <!-- ── SECTION: FAVORIT -->
+    <section class="member-section" data-view="favorit" id="secFavorit">
+        <div class="member-card">
+            <div class="mcard-header">
+                <h3>Menu Pilihan Untukmu</h3>
+            </div>
+            <div class="favorit-grid" id="favoritGrid">
+                <!-- JS rendered -->
+            </div>
+        </div>
+    </section>
+
+</div><!-- /member-main -->
+
+</body>
+</html>
