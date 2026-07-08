@@ -1,5 +1,3 @@
-/* menu-member.js (replace favorit.js) */
-
 let currentCat = 'Semua';
 
 document.addEventListener('DOMContentLoaded', () => {

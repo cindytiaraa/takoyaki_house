@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect ke home member
             setTimeout(() => {
-                window.location.href = '../home.html';
+                window.location.href = '../index.html';
             }, 1000);
 
         }, 700);
