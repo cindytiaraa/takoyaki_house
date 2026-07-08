@@ -16,7 +16,7 @@ function renderCart() {
         listEl.innerHTML = `
             <div class="m-empty">
                 <div class="m-empty-icon"><iconify-icon icon="lucide:shopping-cart"></iconify-icon></div>
-                <p>Keranjangmu kosong.<br><a href="../menu.html">Lihat menu <iconify-icon icon="lucide:arrow-right" style="vertical-align: middle;"></iconify-icon></a></p>
+                <p>Keranjangmu kosong.<br><a href="menu.html">Lihat menu <iconify-icon icon="lucide:arrow-right" style="vertical-align: middle;"></iconify-icon></a></p>
             </div>`;
         if (summaryEl) summaryEl.style.display = 'none';
         return;
