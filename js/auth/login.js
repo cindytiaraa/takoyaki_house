@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!user) {
                 // Set flag and redirect to general home (untuk umum) with error message
                 localStorage.setItem('authError', 'belum_ada_akun');
-                window.location.href = '../home.html';
+                window.location.href = '../index.html';
                 return;
             }
 
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (user.role === 'member') {
                     window.location.href = '../member/home.html';
                 } else {
-                    window.location.href = '../home.html';
+                    window.location.href = '../index.html';
                 }
             }, 900);
 
