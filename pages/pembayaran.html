@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran — Takoyaki House</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/keranjang.css">
+    <link rel="stylesheet" href="../style/order.css">
+    <link rel="stylesheet" href="../style/pembayaran.css">
+
+    <script src="../js/data/account.js" defer></script>
+    <script src="../js/data/menuData.js" defer></script>
+    <script src="../js/data/orderData.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/pembayaran.js" defer></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <div class="nav-inner">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+            </div>
+            <span class="logo-text">Takoyaki House</span>
+        </div>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="promo.html">Promo</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="menu.html">Menu</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="btn-member" id="openMemberModal">Join Member</button>
+            <a href="order.html" class="btn-nav">Order Now</a>
+        </div>
+
+        <div class="cart-icon" style="position: relative; color: #fff;">
+            <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" width="30">
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+
+        <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="promo.html">Promo</a>
+        <a href="artikel.html">Artikel</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+        <button class="btn-member" onclick="openMember()">Join Member</button>
+        <a href="order.html" class="btn-nav">Order Now</a>
+    </div>
+</header>
+
+<!-- JOIN MEMBER -->
+<div class="modal-overlay" id="memberModal">
+    <div class="modal-box">
+        <button class="modal-close" id="closeMemberModal">✕</button>
+        <div class="modal-icon">
+            <img src="https://i.pinimg.com/736x/37/c3/cb/37c3cb99aa3054e970036fa4bb50ad95.jpg" width="40">
+        </div>
+        <h3 class="modal-title">Takoyaki House Member</h3>
+        <p class="modal-sub">Dapatkan promo eksklusif, diskon ulang tahun, dan akses early order khusus member!</p>
+        <div class="modal-benefits">
+            <div class="benefit-item">Diskon 10% setiap hari</div>
+            <div class="benefit-item">Free takoyaki di hari ulang tahun</div>
+            <div class="benefit-item">Early access promo flash sale</div>
+            <div class="benefit-item">Priority order tanpa antri</div>
+        </div>
+        <div class="modal-form">
+            <input type="text" placeholder="Full Name" id="memberName">
+            <input type="email" placeholder="Email Address" id="memberEmail">
+            <input type="password" placeholder="Password" id="memberPassword">
+            <button class="btn-primary modal-submit" onclick="handleMember()">Create Account</button>
+        </div>
+        <p class="modal-login">Already a member? <a href="auth/login.html">Sign in</a></p>
+    </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" style="padding-bottom:40px;">
+    <div class="deco deco-solid deco-1"></div>
+    <div class="page-hero-inner">
+        <p class="hero-tag">Langkah Terakhir</p>
+        <h1 class="page-hero-title">Konfirmasi <em>Pembayaran</em></h1>
+        <p class="page-hero-sub">Lengkapi data penerima dan pilih metode pembayaran untuk menyelesaikan pesananmu.</p>
+    </div>
+</section>
+
+<!-- PEMBAYARAN CONTENT -->
+<section class="keranjang-wrap" id="pembayaranSection">
+    <div class="keranjang-inner" id="pembayaranInner">
+
+        <div class="pembayaran-main">
+
+            <!-- DATA PENERIMA -->
+            <div class="form-step pembayaran-block">
+                <p class="step-label">Langkah 1 — Data Penerima</p>
+                <div class="order-form">
+                    <input type="text" id="payName" placeholder="Nama Lengkap">
+                    <input type="tel" id="payPhone" placeholder="Nomor WhatsApp">
+                </div>
+            </div>
+
+            <!-- REVIEW PESANAN -->
+            <div class="form-step pembayaran-block">
+                <p class="step-label">Langkah 2 — Pesananmu</p>
+                <div class="pembayaran-review" id="pembayaranReview">
+                    <!-- JS rendered -->
+                </div>
+            </div>
+
+            <!-- METODE PEMBAYARAN -->
+            <div class="form-step pembayaran-block">
+                <p class="step-label">Langkah 3 — Metode Pembayaran</p>
+                <div class="payment-methods" id="paymentMethods">
+                    <!-- JS rendered -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUMMARY -->
+        <aside class="keranjang-summary" id="pembayaranSummary">
+            <h3 class="summary-heading">Ringkasan Pembayaran</h3>
+            <div class="summary-lines" id="paySummaryLines"></div>
+            <div class="summary-divider"></div>
+            <div class="summary-grand">
+                <span>Total Bayar</span>
+                <strong id="paySummaryTotal">Rp 0</strong>
+            </div>
+            <button class="btn-primary" id="btnConfirmPayment" style="width:100%;text-align:center;display:block;margin-top:16px;border:none;cursor:pointer;">
+                Konfirmasi Pembayaran
+            </button>
+            <a href="keranjang.html" class="keranjang-back-link">← Kembali ke Keranjang</a>
+        </aside>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+    <div class="deco deco-4"></div>
+    <div class="deco deco-5"></div>
+    <div class="footer-inner">
+        <div class="footer-divider"></div>
+        <div class="footer-brand">TAKOYAKI HOUSE</div>
+        <div class="footer-socials">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">TK</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">YT</a>
+            <a href="mailto:takoyaki@gmail.com" aria-label="Email">@</a>
+            <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+        <div class="footer-info">
+            <p>0812-3456-7890 &nbsp;|&nbsp; Surabaya, Jawa Timur &nbsp;|&nbsp; 10:00 – 22:00</p>
+            <p>© 2026 Takoyaki House. Privacy – Terms</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

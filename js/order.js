@@ -14,7 +14,87 @@ document.addEventListener("DOMContentLoaded", () => {
     document
         .getElementById("btnSubmit")
         ?.addEventListener("click", submitOrder);
+
+    // Navbar: hamburger + Join Member modal.
+    // order.html doesn't load js/script.js (it has its own dedicated
+    // script), so this wiring — present on every other page — was
+    // missing here, which is why "Join Member" didn't respond to clicks.
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (hamburger && mobileMenu) {
+        hamburger.setAttribute("aria-expanded", "false");
+        hamburger.addEventListener("click", () => {
+            const isOpen = mobileMenu.classList.toggle("open");
+            hamburger.setAttribute("aria-expanded", String(isOpen));
+        });
+        mobileMenu.querySelectorAll("a").forEach((a) => {
+            a.addEventListener("click", () => {
+                mobileMenu.classList.remove("open");
+                hamburger.setAttribute("aria-expanded", "false");
+            });
+        });
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                mobileMenu.classList.remove("open");
+                hamburger.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    document.getElementById("openMemberModal")?.addEventListener("click", openMember);
+    document.getElementById("closeMemberModal")?.addEventListener("click", closeMember);
+    document.getElementById("memberModal")?.addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeMember();
+    });
 });
+
+/* ──────────────────────────────────
+   JOIN MEMBER MODAL
+   (mirrors js/script.js so the shared navbar/modal
+   markup on this page is actually functional)
+────────────────────────────────── */
+function openMember() {
+    document.getElementById("memberModal").classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeMember() {
+    document.getElementById("memberModal").classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+function handleMember() {
+    const name = document.getElementById("memberName").value.trim();
+    const email = document.getElementById("memberEmail").value.trim();
+    const pass = document.getElementById("memberPassword").value.trim();
+
+    if (!name || !email || !pass) {
+        alert("Please fill in all fields to create your account.");
+        return;
+    }
+    if (!email.includes("@")) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    if (pass.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    closeMember();
+    const toast = document.createElement("div");
+    toast.style.cssText = `
+        position:fixed; bottom:24px; right:24px; z-index:9999;
+        background:var(--navy); color:white;
+        padding:14px 22px; border-radius:10px;
+        font-family:var(--font-body); font-size:0.88rem; font-weight:500;
+        box-shadow:0 8px 24px rgba(0,0,0,0.2);
+        animation: slideInToast 0.3s ease;
+    `;
+    toast.innerHTML = `Welcome, <strong>${name}</strong>! Member account created.`;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3500);
+}
 
 function renderMenuGrid() {
     const menu = window.dummyMenu || [];
