@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/order.css">
 
-    <script src="../js/data/account.js" defer></script>
     <script src="../js/data/menuData.js" defer></script>
     <script src="../js/data/orderData.js" defer></script>
     <script src="../js/auth.js" defer></script>
-    <script src="../js/script.js" defer></script>
+    <script src="../js/order.js" defer></script>
 </head>
 <body>
 
@@ -48,7 +47,7 @@
                 <span class="cart-count" id="cartCount">2</span>
             </a>
         </div>
-        
+
         <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
@@ -64,7 +63,7 @@
     </div>
 </header>
 
-<!--  JOIN MEMBER -->
+<!-- JOIN MEMBER -->
 <div class="modal-overlay" id="memberModal">
     <div class="modal-box">
         <button class="modal-close" id="closeMemberModal">✕</button>
@@ -89,45 +88,92 @@
     </div>
 </div>
 
-<!-- CTA / ORDER SECTION -->
-<section class="promo-section" id="order">
+<section class="order-section" id="order">
     <div class="deco deco-1"></div>
     <div class="deco deco-2"></div>
 
-    <p class="promo-eyebrow">Pesan sebelum kehabisan!</p>
-    <h2>Coba dulu, pasti ketagihan.</h2>
+    <div class="order-header">
+        <p class="order-eyebrow">Pesan Sebelum Kehabisan!</p>
+        <h2>Coba dulu, pasti ketagihan.</h2>
+        <p class="order-subtitle">
+            Pilih menu favoritmu, isi data pemesan, lalu konfirmasi pesanan dengan mudah.
+        </p>
+    </div>
 
-    <!-- ORDER FORM (Menu Selection)-->
-    <div class="form-step" id="step1">
-        <p class="step-label">Langkah 1 — Pilih Menu</p>
-        <div class="order-menu-picker" id="orderMenuPicker">
-            <!-- filled by JS -->
+    <div class="order-container">
+
+        <!-- DATA PEMESAN -->
+        <div class="form-step">
+            <p class="step-label">Langkah 1 — Data Pemesan</p>
+
+            <div class="order-form">
+
+                <input
+                    type="text"
+                    id="orderName"
+                    placeholder="Nama Lengkap">
+
+                <input
+                    type="tel"
+                    id="orderPhone"
+                    placeholder="Nomor WhatsApp">
+
+                <textarea
+                    id="orderNote"
+                    rows="3"
+                    placeholder="Catatan tambahan (opsional)..."></textarea>
+
+            </div>
         </div>
-        <p class="picker-hint" id="pickerHint" style="display:none">⚠️ Pilih minimal 1 menu untuk melanjutkan.</p>
-    </div>
 
-    <!-- ORDER FORM (Data)-->
-    <div class="form-step" id="step2">
-        <p class="step-label">Langkah 2 — Data Pemesan</p>
-        <div class="promo-form">
-            <input type="text" placeholder="Nama kamu" id="orderName">
-            <input type="tel" placeholder="Nomor WhatsApp" id="orderPhone">
-            <textarea placeholder="Catatan tambahan (opsional)..." id="orderNote" rows="2"></textarea>
+        <!-- MENU -->
+        <div class="form-step">
+            <div class="step-top">
+                <p class="step-label">
+                    Langkah 2 — Pilih Menu
+                </p>
+
+                <span id="selectedCount">
+                    0 Menu Dipilih
+                </span>
+            </div>
+
+            <div class="order-menu-grid" id="orderMenuGrid"></div>
+
+            <p class="picker-hint" id="pickerHint" style="display:none">
+                ⚠️ Pilih minimal satu menu.
+            </p>
         </div>
-    </div>
 
-    <!-- Summary & Submit -->
-    <div class="order-summary" id="orderSummary" style="display:none">
-        <p class="step-label">Ringkasan Pesanan</p>
-        <div id="summaryList"></div>
-        <div class="summary-total">Total: <strong id="summaryTotal">Rp 0</strong></div>
-    </div>
+        <!-- SUMMARY -->
+        <div class="order-summary" id="orderSummary" style="display:none">
+            <p class="step-label">
+                Ringkasan Pesanan
+            </p>
 
-    <div class="order-actions">
-        <button class="btn-outline" id="btnPreview" onclick="previewOrder()">Order</button>
-        <button class="btn-primary" id="btnSubmit" onclick="submitOrder()" style="display:none">Konfirmasi & Pesan</button>
+            <div id="summaryList"></div>
+
+            <div class="summary-total">
+                Total
+                <strong id="summaryTotal">
+                    Rp 0
+                </strong>
+            </div>
+        </div>
+
+        <!-- BUTTON -->
+        <div class="order-actions">
+            <button class="btn-outline" id="btnPreview">
+                Preview Pesanan
+            </button>
+
+            <button class="btn-primary" id="btnSubmit" style="display:none">
+                Konfirmasi Pesanan
+            </button>
+        </div>
+
+        <div id="orderMsg" class="order-msg" style="display:none"></div>
     </div>
-    <div id="orderMsg" class="order-msg" style="display:none"></div>
 </section>
 
 <!-- FOOTER -->

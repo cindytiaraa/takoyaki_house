@@ -11,12 +11,9 @@
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/artikel.css">
 
-    <script src="../js/data/account.js" defer></script>
     <script src="../js/data/menuData.js" defer></script>
     <script src="../js/data/orderData.js" defer></script>
     <script src="../js/data/articleData.js" defer></script>
-    <script src="../js/auth.js" defer></script>
-    <script src="../js/script.js" defer></script>
     <script src="../js/artikel.js" defer></script>
 </head>
 <body>
@@ -91,37 +88,75 @@
     </div>
 </div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-    <div class="deco deco-solid deco-1"></div>
-    <div class="deco deco-outline deco-2"></div>
-    <div class="page-hero-inner">
-        <p class="hero-tag">Blog & Insight</p>
-        <h1 class="page-hero-title">Arsip <em>Artikel</em></h1>
-        <p class="page-hero-sub">Cerita, tips, dan promo terbaru dari dapur Takoyaki House.</p>
-    </div>
-</section>
 
-<!-- FILTER BAR -->
-<section class="artikel-filter-bar">
-    <div class="artikel-filter-inner">
-        <button class="filter-btn active" data-cat="Semua">Semua</button>
-        <button class="filter-btn" data-cat="Tips & Trik">Tips & Trik</button>
-        <button class="filter-btn" data-cat="Kesehatan">Kesehatan</button>
-        <button class="filter-btn" data-cat="Promo">Promo</button>
-        <button class="filter-btn" data-cat="Resep">Resep</button>
-    </div>
-</section>
-
-<!-- ARTIKEL GRID -->
+<!-- =========================
+     ARTIKEL CONTENT
+========================= -->
 <section class="artikel-section">
-    <div class="artikel-grid" id="artikelGrid">
-        <!-- JS rendered -->
-        <div class="menu-skeleton" style="height:320px;"></div>
-        <div class="menu-skeleton" style="height:320px;"></div>
-        <div class="menu-skeleton" style="height:320px;"></div>
+    <div class="artikel-container">
+        <div class="artikel-filter" id="artikelFilter"></div>
+        
+            <div class="artikel-layout">
+
+            <!-- =========================
+                LEFT CONTENT
+            ========================== -->
+            <div class="artikel-grid" id="artikelGrid">
+
+                <!-- Skeleton Loading -->
+                <div class="menu-skeleton" style="height:220px;"></div>
+                <div class="menu-skeleton" style="height:220px;"></div>
+                <div class="menu-skeleton" style="height:220px;"></div>
+
+            </div>
+
+            <!-- =========================
+                SIDEBAR
+            ========================== -->
+            <aside class="artikel-sidebar">
+
+                <!-- Search -->
+                <div class="sidebar-card">
+
+                    <h3>Search Article</h3>
+
+                    <input
+                        type="text"
+                        class="sidebar-search"
+                        id="artikelSearch"
+                        placeholder="Cari artikel...">
+
+                </div>
+
+                <!-- Popular -->
+                <div class="sidebar-card">
+
+                    <h3>Popular Articles</h3>
+                    <div class="popular-list" id="popularList"></div>
+
+                </div>
+
+                <!-- Categories -->
+                <div class="sidebar-card">
+
+                    <h3>Kategori</h3>
+                    <ul class="sidebar-category" id="sidebarCategory"></ul>
+                </div>
+            </aside>
+
+        </div>
     </div>
-    <p class="artikel-empty" id="artikelEmpty" style="display:none;">Belum ada artikel di kategori ini.</p>
+
+    <!-- EMPTY -->
+    <p
+        class="artikel-empty"
+        id="artikelEmpty"
+        style="display:none;">
+
+        Belum ada artikel pada kategori ini.
+
+    </p>
+
 </section>
 
 <!-- FOOTER -->

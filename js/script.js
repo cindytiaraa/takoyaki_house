@@ -94,16 +94,16 @@ function renderMenu(items) {
         card.className = "menu-card fade-in";
         card.style.animationDelay = `${i * 0.08}s`;
         card.innerHTML = `
-            <div class="menu-card-img">
+            <div class="menu-card-img" onclick="goToDetail(${item.id})">
                 <img src="${item.img}" alt="${item.name}" onerror="fallbackImg(this,'${item.name}')">
                 ${item.badge ? `<span class="menu-card-badge">${item.badge}</span>` : ""}
             </div>
             <div class="menu-card-body">
-                <h3>${item.name}</h3>
+                <h3 onclick="goToDetail(${item.id})">${item.name}</h3>
                 <p>${item.desc}</p>
                 <div class="menu-card-footer">
                     <span class="menu-price">${item.price}</span>
-                    <button class="menu-order-btn" onclick="scrollToOrder(${i})">Pesan →</button>
+                    <button class="menu-order-btn" onclick="goToOrder(${item.id})"> Pesan → </button>
                 </div>
             </div>
         `;
@@ -114,6 +114,15 @@ function renderMenu(items) {
     setTimeout(() => {
         document.querySelectorAll(".menu-card.fade-in").forEach(el => el.classList.add("visible"));
     }, 50);
+}
+
+function goToOrder(id){
+    window.location.href =
+        `order.html?id=${id}`;
+}
+
+function goToDetail(id) {
+    window.location.href = `detail-produk.html?id=${id}`;
 }
 
 /* ──────────────────────────────────

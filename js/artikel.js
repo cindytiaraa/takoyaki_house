@@ -14,6 +14,26 @@ function getExcerpt(content, maxLen = 100) {
     return content.length > maxLen ? content.slice(0, maxLen) + '…' : content;
 }
 
+function renderFilterArtikel(){
+    const wrap = document.getElementById("artikelFilter");
+    const articles = window.dummyArticles || [];
+    const categories = [
+        "Semua",
+        ...new Set(
+            articles
+                .filter(a => a.status === "Published")
+                .map(a => a.category)
+        )
+    ];
+    wrap.innerHTML = categories.map((cat,index)=>`
+        <button
+            class="filter-btn ${index===0 ? 'active' : ''}"
+            data-cat="${cat}">
+            ${cat}
+        </button>
+    `).join("");
+}
+
 function renderArtikel(cat) {
     const grid = document.getElementById('artikelGrid');
     const empty = document.getElementById('artikelEmpty');
@@ -51,38 +71,69 @@ function renderArtikel(cat) {
     }, 80);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // wait for articleData to be ready
-    setTimeout(() => renderArtikel('Semua'), 100);
+function renderPopularArtikel(){
+    const wrap = document.getElementById("popularList");
+    if(!wrap) return;
+    const articles = (window.dummyArticles || [])
+        .filter(a=>a.status==="Published")
+        .slice(0,3);
+    wrap.innerHTML = articles.map(a=>`
+        <a href="detail-artikel.html?id=${a.id}">
+            <img src="${a.image}" alt="${a.title}">
+            <div>
+                <h4>${a.title}</h4>
+                <span>${a.category}</span>
+            </div>
+        </a>
+    `).join("");
+}
 
-    // filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            artikelCurrentCat = btn.dataset.cat;
-            renderArtikel(artikelCurrentCat);
+function renderKategoriArtikel(){
+    const wrap = document.getElementById("sidebarCategory");
+    if(!wrap) return;
+    const categories = [
+        ...new Set(
+            (window.dummyArticles||[])
+            .filter(a=>a.status==="Published")
+            .map(a=>a.category)
+        )
+    ];
+    wrap.innerHTML = categories.map(cat=>`
+
+        <li>${cat}</li>
+
+    `).join("");
+}
+
+function initSearch(){
+    const input = document.getElementById("artikelSearch");
+    if(!input) return;
+    input.addEventListener("input",()=>{
+        const keyword = input.value.toLowerCase();
+        const cards = document.querySelectorAll(".artikel-card");
+        cards.forEach(card=>{
+            const title = card.querySelector("h3").innerText.toLowerCase();
+            card.style.display =
+                title.includes(keyword)
+                ? ""
+                : "none";
         });
     });
+}
 
-    // navbar scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 20);
+document.addEventListener("DOMContentLoaded",()=>{
+    renderFilterArtikel();
+    renderArtikel("Semua");
+    renderPopularArtikel();
+    renderKategoriArtikel();
+    initSearch();
+
+    document.addEventListener("click",(e)=>{
+        if(!e.target.classList.contains("filter-btn")) return;
+        document
+            .querySelectorAll(".filter-btn")
+            .forEach(btn=>btn.classList.remove("active"));
+        e.target.classList.add("active");
+        renderArtikel(e.target.dataset.cat);
     });
-
-    // hamburger
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    }
-
-    // member modal
-    const openBtn = document.getElementById('openMemberModal');
-    const closeBtn = document.getElementById('closeMemberModal');
-    const modal = document.getElementById('memberModal');
-    if (openBtn) openBtn.addEventListener('click', () => modal.classList.add('open'));
-    if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('open'));
-    if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
 });
