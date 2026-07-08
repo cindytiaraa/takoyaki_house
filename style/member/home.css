@@ -512,3 +512,10 @@
     .fav-menu-grid { grid-template-columns: 1fr; }
     .order-menu-grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 480px) {
+    .mh-stats-grid { grid-template-columns: 1fr; }
+    .mh-quicklinks { grid-template-columns: repeat(2, 1fr); }
+    .order-menu-grid { grid-template-columns: 1fr; }
+    .cart-item-row { flex-wrap: wrap; }
+    .cart-subtotal { width: 100%; text-align: left; margin-top: 6px; }
+}

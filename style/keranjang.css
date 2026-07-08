@@ -209,4 +209,6 @@
 @media (max-width: 480px) {
     .cart-item { flex-wrap: wrap; }
     .cart-item-subtotal { width: 100%; text-align: left; }
+    .keranjang-wrap { padding: 24px 16px 60px; }
+    .page-hero { padding: 96px 16px 36px; }
 }

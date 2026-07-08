@@ -159,5 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPaymentMethods();
     setTimeout(() => renderReviewAndSummary(getCart()), 60);
 
+    // Prefill name and phone from order details stored in localStorage
+    const savedName = localStorage.getItem('orderName') || '';
+    const savedPhone = localStorage.getItem('orderPhone') || '';
+    if (savedName && document.getElementById('payName')) {
+        document.getElementById('payName').value = savedName;
+    }
+    if (savedPhone && document.getElementById('payPhone')) {
+        document.getElementById('payPhone').value = savedPhone;
+    }
+
     document.getElementById('btnConfirmPayment')?.addEventListener('click', confirmPayment);
 });

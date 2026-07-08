@@ -539,6 +539,8 @@ a { text-decoration: none; color: inherit; }
     .hero { padding: 96px 24px 48px; min-height: auto; }
     .hero-inner { grid-template-columns: 1fr; gap: 36px; }
     .browser-content { height: 220px; }
+    .video-frame { width: 100%; max-width: 100%; }
+    .video-mockup { width: 100%; max-width: 100%; }
 
     .dark-banner { padding: 56px 24px; }
     .dark-banner-inner { grid-template-columns: 1fr; gap: 30px; }

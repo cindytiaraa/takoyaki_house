@@ -254,7 +254,10 @@
     .detail-produk-inner { grid-template-columns: 1fr; gap: 32px; }
     .related-section { padding: 40px 24px 60px; }
     .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .breadcrumb-bar { padding: 0 24px; }
 }
 @media (max-width: 480px) {
     .related-grid { grid-template-columns: 1fr; }
+    .detail-produk-wrap { padding: 24px 16px 40px; }
+    .breadcrumb-bar { padding: 0 16px; }
 }

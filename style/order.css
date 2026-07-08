@@ -274,10 +274,19 @@
     .order-menu-grid{
         grid-template-columns:repeat(2,1fr);
     }
+    .order-section{
+        margin: 80px auto 60px;
+        padding: 0 16px;
+    }
+    .order-header h2{ font-size: 2rem; }
+    .order-actions{ flex-direction: column; }
+    .order-actions .btn-outline,
+    .order-actions .btn-primary{ width: 100%; text-align: center; }
 }
 
 @media(max-width:560px){
     .order-menu-grid{
         grid-template-columns:1fr;
     }
+    .order-header h2{ font-size: 1.6rem; }
 }

@@ -680,36 +680,115 @@ body{
 
 /* RESPONSIVE */
 @media(max-width:1000px){
-
     .dashboard-grid{
         grid-template-columns:1fr;
     }
-
 }
 
 @media(max-width:900px){
-
+    /* Sidebar menjadi nav horizontal sticky di atas */
     .sidebar{
-        display:none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 16px;
+        gap: 0;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: visible;
+        scrollbar-width: none;
+        z-index: 1000;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,122,0,0.18);
+    }
+    .sidebar::-webkit-scrollbar { display: none; }
+
+    .sidebar-logo{
+        flex-shrink: 0;
+        gap: 8px;
+        margin-right: 16px;
+    }
+    .sidebar-logo img{
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+    }
+    .sidebar-logo h2{ font-size: 0.95rem; white-space: nowrap; }
+    .sidebar-logo p{ display: none; }
+
+    .sidebar-menu{
+        margin-top: 0;
+        flex-direction: row;
+        gap: 4px;
+        flex-wrap: nowrap;
+        flex: 1;
+    }
+    .sidebar-menu a{
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .sidebar-bottom{
+        flex-shrink: 0;
+        margin-left: 8px;
+    }
+    .logout-btn{
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        width: auto;
+        white-space: nowrap;
     }
 
     .dashboard-main{
-        margin-left:0;
-        padding:25px;
+        margin-left: 0;
+        margin-top: 64px;
+        padding: 20px;
     }
 
     .topbar{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
     }
+    .topbar h1 { font-size: 28px; }
 
     .topbar-right{
-        width:100%;
-        flex-direction:column;
-        align-items:stretch;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
     }
+    .topbar-right input{ width: 100%; }
+}
 
+@media(max-width:600px){
+    .management-header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .management-actions{
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-field select{
+        min-width: 100%;
+        width: 100%;
+    }
+    .btn-gradient{
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* ── MODAL OVERLAY & POPUP ────────── */

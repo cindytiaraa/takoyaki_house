@@ -47,3 +47,11 @@
 
 .menu-skeleton { background: var(--gray-light); border-radius: var(--radius-lg); height: 280px; animation: pulse 1.4s ease-in-out infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* ── Responsive */
+@media (max-width: 768px) {
+    .menu-section { padding: 60px 16px; }
+}
+@media (max-width: 480px) {
+    .menu-grid { grid-template-columns: 1fr; }
+}

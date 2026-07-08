@@ -23,9 +23,10 @@ function injectMemberLayout() {
             <span class="topbar-logo-text">Takoyaki House</span>
         </a>
         <span class="topbar-page-title" id="topbarPageTitle"></span>
-        <div class="topbar-right">
-            <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;">
+        <div class="topbar-right" style="position: relative;">
+            <a href="keranjang.html" aria-label="Cart" style="display: flex; align-items: center;color: #fff;position: relative;margin-right: 8px;">
                 <span class="mh-ql-icon"><iconify-icon icon="lucide:shopping-cart"></iconify-icon></span>
+                <span class="topbar-cart-count" id="cartCount" style="position: absolute; top: -5px; right: -8px;">0</span>
             </a>
             <div class="topbar-user-avatar" id="topbarAvatar" onclick="openDrawer()">M</div>
         </div>

@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     renderMenuGrid();
+    updateSummary();
+    updateSelectedCount();
     document
         .getElementById("btnPreview")
         ?.addEventListener("click", previewOrder);
@@ -156,6 +158,7 @@ function toggleItem(id) {
     }
     renderMenuGrid();
     updateSummary();
+    updateSelectedCount();
 }
 
 function changeQty(e,id,delta){
@@ -167,6 +170,7 @@ function changeQty(e,id,delta){
     }
     renderMenuGrid();
     updateSummary();
+    updateSelectedCount();
 }
 
 function updateSummary() {
@@ -238,7 +242,6 @@ function submitOrder() {
     const name  = document.getElementById('orderName')?.value.trim();
     const phone = document.getElementById('orderPhone')?.value.trim();
     const note  = document.getElementById('orderNote')?.value.trim();
-    const resultEl = document.getElementById('orderResultMsg');
 
     if (!name || !phone || Object.keys(selectedItems).length === 0) return;
 
@@ -271,31 +274,25 @@ function submitOrder() {
     orders.push(newOrder);
     if (typeof window.saveOrders === 'function') window.saveOrders();
 
-    // Reset
-    Object.keys(selectedItems).forEach(id => {
-        delete selectedItems[id];
-        document.getElementById(`chip-${id}`)?.classList.remove('selected');
-        const qr = document.getElementById(`qtyrow-${id}`);
-        if (qr) qr.style.display = 'none';
-        const qn = document.getElementById(`qnum-${id}`);
-        if (qn) qn.textContent = '1';
+    // Map selected items to the checkout cart schema for the payment page
+    const cartItems = Object.entries(selectedItems).map(([id, qty]) => {
+        const item = menu.find(m => m.id === parseInt(id));
+        return {
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            img: item.img,
+            qty: qty
+        };
     });
-    updateSelectedCount();
 
-    document.getElementById('orderNote').value = '';
-    document.getElementById('orderSummaryCard').style.display = 'none';
-    document.getElementById('btnSubmitOrder').style.display   = 'none';
-    document.getElementById('btnPreviewOrder').style.display  = 'inline-block';
+    // Save cart data and customer data to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    localStorage.setItem('orderName', name);
+    localStorage.setItem('orderPhone', phone);
 
-    if (resultEl) {
-        resultEl.className = 'order-result-msg success';
-        resultEl.innerHTML = `✅ <strong>Pesanan berhasil dikirim!</strong><br>
-            Halo <strong>${name}</strong>, pesananmu (${items.map(i => i.name + ' ×' + i.qty).join(', ')}) sudah kami terima.<br>
-            Kami akan menghubungi <strong>${phone}</strong> segera.<br>
-            ${note ? `📝 Catatan: ${note}` : ''}`;
-        resultEl.style.display = 'block';
-        resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    // Redirect directly to the Pembayaran page
+    window.location.href = "pembayaran.html";
 }
 
 function parsePrice(price){
@@ -310,4 +307,12 @@ function parsePrice(price){
 
 function fmtRp(number){
     return "Rp " + number.toLocaleString("id-ID");
+}
+
+function updateSelectedCount() {
+    const el = document.getElementById("selectedCount");
+    if (el) {
+        const count = Object.keys(selectedItems).length;
+        el.textContent = `${count} Menu Dipilih`;
+    }
 }
